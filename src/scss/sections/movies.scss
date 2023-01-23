@@ -1,0 +1,27 @@
+.out-now {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 200px);
+    column-gap: 1.5em;
+}
+
+.movie {
+
+    &__poster {
+        width: 100%;
+        object-fit: cover;
+    }
+
+    &__title {
+        width: 80%;
+        display: flex;
+        margin: 0 1em;
+        color: $white-color;
+        font-size: .8rem;
+        text-align: left;
+        
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+}

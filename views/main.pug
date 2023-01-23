@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css")
+        link(rel="stylesheet", href="main.css")
+        title Sundsvalls Spegeln
+        script(src="js/main.js", type="module")
+    body
+        header(class="header")
+            a(href="/")
+                img(class="header-logo", src="/assets/biospegeln_100_white.png", alt="Spegeln logo")
+
+            ul(class="socials-list")
+                li
+                    a(href="/") 
+                        i(class="fa-brands fa-facebook")
+                li
+                    a(href="/")
+                        i(class="fa-brands fa-instagram")
+                li
+                    a(href="/")
+                        i(class="fa-brands fa-twitter")
+                li
+                    a(href="/")
+                        i(class="fa-solid fa-envelope")
+
+        nav(class="main-nav")
+            button(class="toggle-menu")
+                i(class="fa-solid fa-bars")
+
+            menu(class="nav-menu")
+                li
+                    a(href="/contact") Öppettider & Kontakt
+                li
+                    a(href="/about") Om Spegeln
+                li
+                    a(href="/tickets") Biljettinfo
+                li
+                    a(href="/news") Vill du ha vårt nyhetsbrev?
+                li
+                    a(href="/giftcard") Köp presentkort
+
+        nav(class="sidebar-nav")
+            ul(class="nav-list")
+                each menu in dropdownMenu
+                    li
+                        button(class="dropdown-toggle")= menu.label
+                        
+                        menu(class="dropdown-menu")
+                            each item in menu.items
+                                li 
+                                    a(href=item.href)= item.label
+
+        block content
+
