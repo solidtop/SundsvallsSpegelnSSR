@@ -9,7 +9,7 @@ export async function fetchMovies() {
 }
 
 export async function fetchMovie(id) {
-    const res = await fetch(API_URL + id);
+    const res = await fetch(API_URL + '/' + id);
     const data = await res.json();
     return data.data;
 } 
