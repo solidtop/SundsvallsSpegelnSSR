@@ -1,27 +1,59 @@
-.out-now {
+.out-now, .all-movies {
+    @include container;
+}
+
+.movie-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 200px);
-    column-gap: 1.5em;
+    grid-template-columns: repeat(auto-fit, 250px);
+    justify-content: center;
+    gap: 1em;
+    overflow: hidden;
+    padding: 2em 0;
 }
 
 .movie {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: .5em;
+    background-color: $container-color;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(black, .4);
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    .movie-link {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
 
     &__poster {
-        width: 100%;
-        object-fit: cover;
+        height: 350px;
     }
 
     &__title {
-        width: 80%;
-        display: flex;
-        margin: 0 1em;
+        margin: 0;
         color: $white-color;
         font-size: .8rem;
+        font-weight: normal;
         text-align: left;
-        
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
     }
 
+    .button {
+        margin-top: 1em;
+        z-index: 10;
+        font-size: .65rem;
+    }
+}
+
+.movie.small {
+    max-width: 200px;
 }

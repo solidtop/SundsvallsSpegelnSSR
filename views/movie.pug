@@ -1,0 +1,33 @@
+extends main.pug 
+block content 
+    article(class="movie-info")
+        img(class="movie-poster", src=movie.attributes.image.url)
+        
+        div(class="col-movie-info") 
+            h1(class="movie-title")=movie.attributes.title
+            p(class="movie-intro")=movie.attributes.intro
+            
+            section(class="cta")
+                a(class="button primary", href="/tickets") Köp Biljetter
+
+            section(class="videos")
+                h1=`Videor & Trailers för ${movie.attributes.title}`
+                i Kommer Snart
+
+            section(class="images")
+                h1=`Bilder för ${movie.attributes.title}`
+                i Kommer Snart
+
+            section(class="reviews")
+                h1 Recensioner
+                i Kommer Snart
+
+            section(class="cast")
+                h1 Rolllista
+                i Kommer Snart
+
+
+
+
+
+

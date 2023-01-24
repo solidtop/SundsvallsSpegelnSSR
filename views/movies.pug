@@ -1,0 +1,11 @@
+extends main.pug 
+block content 
+    
+    section(class="all-movies")
+
+        h2 HELA BIOPROGRAMMET
+
+        ul(class="movie-list")
+            each movie in movies
+                include movie-card.pug
+        

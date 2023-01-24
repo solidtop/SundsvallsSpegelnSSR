@@ -1,0 +1,53 @@
+.movie-info {
+    @include container;
+
+    padding: 1em;
+}
+
+.movie-poster {
+    margin: 0 auto;
+    margin-bottom: 1em;
+    padding: .5em;
+    max-height: 20rem;
+    background-color: $container-color;
+    border-radius: 5px;
+}
+
+.col-movie-info {
+    margin: 0 .3em;
+    padding: 1em;
+    color: $white-color;
+    background-color: $container-color;
+    border-radius: 5px;
+}
+
+.movie-title {
+    margin: 0;
+    font-size: 1.7rem;
+}
+
+.movie-intro {
+    font-size: .8rem;
+    font-weight: normal;
+}
+
+.cta, .videos, .images, .reviews, .cast {
+    margin: 2em 0;
+}
+
+.cta .button {
+    max-width: 8rem;
+}
+
+
+@media (min-width: $bp-medium) {
+    .movie-info {
+        display: flex;
+    }
+}
+
+
+
+
+
+

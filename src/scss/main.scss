@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap');
 @import 'variables.scss';
 @import 'misc.scss';
 
@@ -11,16 +12,19 @@ body, html{
 }
 
 * {
-    font-family: sans-serif;
+    font-family: 'Poppins', sans-serif;
 
     @media (min-width: $bp-large) {
         font-size: 24px;
     }
 }
 
+@import '404.scss';
+
 @import 'sections/header.scss';
 @import 'sections/mainNav.scss';
 @import 'sections/sidebarNav.scss';
 @import 'sections/movies.scss';
 @import 'sections/content.scss';
+@import 'sections/movie-page.scss';
 

@@ -74,3 +74,41 @@ button {
         filter: brightness(150%);
     }
 }
+
+img {
+    display: block;
+    object-fit: cover;
+}
+
+.button {
+    font-size: .8rem;
+    font-weight: bold;
+    padding: .5em .1em;
+    border: none;
+    border-radius: 83px;
+    text-align: center;
+    color: $background-color;
+
+    &.primary {
+        background-color: $text-color;
+
+        &:hover {
+            cursor: pointer;
+            filter: brightness(120%);
+        }
+    }
+}
+
+i {
+    color: $text-color;
+}
+
+.line {
+    display: block;
+    margin: 0 auto;
+    content: "";
+    width: 80%;
+    height: .1em;
+    border-radius: 83px;
+    background-color: $text-color;
+}

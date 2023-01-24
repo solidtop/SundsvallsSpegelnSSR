@@ -2,10 +2,19 @@ extends main.pug
 block content 
 
     section(class="out-now")
-        each movie in movies
-            article(class="movie") 
-                img(class="movie__poster", src=movie.attributes.image.url, alt=movie.attributes.title)
-                h2(class="movie__title")=movie.attributes.title
+        h2 PÅ BION JUST NU
+        div(class="line")
+
+        ul(class="movie-list")
+            each movie in moviesOutNow
+                include movie-card.pug
 
     section(class="coming-soon")
+        h2 KOMMER SNART
+        div(class="line")
+
+        ul(class="movie-list")
+            each movie in moviesOutNow
+                include movie-card-small.pug
+
 

@@ -1,0 +1,4 @@
+li(class="movie small") 
+    a(class="movie-link", href=`/movies/${movie.id}`)
+    img(class="movie__poster", src="https://picsum.photos/640/560", alt=movie.attributes.title)
+    h3(class="movie__title")=movie.attributes.title
