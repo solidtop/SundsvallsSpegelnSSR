@@ -1,0 +1,5 @@
+li(class="movie") 
+    a(class="movie-link", href=`/movies/${movie.id}`)
+    img(class="movie__poster", src=movie.attributes.image.url, alt=movie.attributes.title)
+    h3(class="movie__title")=movie.attributes.title
+    a(class="button primary", href="/tickets") Köp Biljetter
