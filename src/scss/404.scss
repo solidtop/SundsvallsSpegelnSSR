@@ -1,0 +1,18 @@
+.status {
+    @include container;
+
+    i {
+        font-size: 4rem;
+        margin: .5em auto;
+
+    }
+}
+
+.status-code, .status-message {
+    margin: 0;
+    text-align: center;
+}
+
+.status-code {
+    font-size: 3rem;
+}
