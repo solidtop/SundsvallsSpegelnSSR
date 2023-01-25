@@ -16,10 +16,10 @@
     
     i {
         font-size: 1rem;
-        color: $white-color;
+        color: $text-color;
 
         &:hover {
-            color: $text-color;
+            @include text-gradient;
         }
     }
 }

@@ -1,3 +1,43 @@
+.movie-hero {
+    @include container;
+    position: relative;
+    overflow: hidden;
+
+    &__image {
+        height: 360px;
+        display: block;
+        border-radius: 5px;
+    }
+
+    .vignette {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        box-shadow: inset 0 0 500px black;
+        border-radius: 5px;
+    }
+
+    .button {
+        position: absolute;
+        bottom: 2em;
+        left: 8em;
+        width: 8rem;
+    }
+}
+
+.movie-title {
+    position: absolute;
+    bottom: 2em;
+    left: 2em;
+    margin: 0;
+    font-family: 'Abril Fatface', 'Poppins', sans-serif;
+    font-size: 2.5rem;
+    text-align: left;
+    color: white;
+}
+
 .movie-info {
     @include container;
 
@@ -9,40 +49,38 @@
     margin-bottom: 1em;
     padding: .5em;
     max-height: 20rem;
-    background-color: $container-color;
+    background-color: rgba(white, .05);
     border-radius: 5px;
+    border: 2px rgba(white, .02);
+    border-style: none solid none;
 }
 
 .col-movie-info {
-    margin: 0 .3em;
     padding: 1em;
     color: $white-color;
-    background-color: $container-color;
+    background-color: rgba(white, .05);
     border-radius: 5px;
-}
+    border: 2px rgba(white, .02);
+    border-style: none solid;
 
-.movie-title {
-    margin: 0;
-    font-size: 1.7rem;
+    .line {
+        margin-left: 0;
+    }
 }
 
 .movie-intro {
-    font-size: .8rem;
-    font-weight: normal;
+    font-size: .7rem;
+    font-weight: 300;
 }
 
-.cta, .videos, .images, .reviews, .cast {
+.videos, .images, .reviews, .cast {
     margin: 2em 0;
 }
-
-.cta .button {
-    max-width: 8rem;
-}
-
 
 @media (min-width: $bp-medium) {
     .movie-info {
         display: flex;
+        gap: 1em;
     }
 }
 

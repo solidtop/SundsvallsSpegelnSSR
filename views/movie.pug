@@ -1,16 +1,19 @@
 extends main.pug 
 block content 
+    section(class="movie-hero")
+        img(class="movie-hero__image", src="https://www.themoviedb.org/t/p/original/ik3sCC9fziS4SnagwRAQWPytBtj.jpg", alt="Movie hero image")
+        div(class="vignette")
+        h1(class="movie-title")=movie.attributes.title
+            div(class="line")
+        a(class="button primary", href="/tickets") Köp Biljetter
+    
     article(class="movie-info")
         img(class="movie-poster", src=movie.attributes.image.url)
         
         div(class="col-movie-info") 
-            h1(class="movie-title")=movie.attributes.title
             p(class="movie-intro")
                 !=md(movie.attributes.intro)
             
-            section(class="cta")
-                a(class="button primary", href="/tickets") Köp Biljetter
-
             section(class="videos")
                 h1=`Videor & Trailers för ${movie.attributes.title}`
                 i Kommer Snart

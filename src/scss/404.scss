@@ -4,13 +4,14 @@
     i {
         font-size: 4rem;
         margin: .5em auto;
-
+        @include text-gradient;
     }
 }
 
 .status-code, .status-message {
     margin: 0;
     text-align: center;
+    @include text-gradient;
 }
 
 .status-code {

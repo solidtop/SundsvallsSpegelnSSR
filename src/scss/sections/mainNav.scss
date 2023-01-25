@@ -2,7 +2,6 @@
     @include container;
     
     border-radius: 5px;
-    background-color: $container-color;
 }
 
 .nav-menu {
@@ -14,8 +13,6 @@
     text-align: center;
 
     li  {
-        border: 3px $background-color;
-        border-style: none solid none none;
         padding: 0 1.5em;
 
         &:last-child {
@@ -36,7 +33,7 @@
     background: transparent;
     border: none;
     font-size: 2.5rem;
-    color: $white-color;
+    color: $text-color;
 }
 
 @media (max-width: $bp-medium) {

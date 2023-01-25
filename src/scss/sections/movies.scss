@@ -16,9 +16,11 @@
     display: flex;
     flex-direction: column;
     padding: .5em;
-    background-color: $container-color;
+    background-color: rgba(white, .05);
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(black, .4);
+    border: 2px rgba(white, .02);
+    border-style: none solid none;
+    box-shadow: 0 0 20px rgba(black, .5);
 
     &:hover {
         cursor: pointer;
@@ -37,7 +39,7 @@
     }
 
     &__title {
-        margin: 0;
+        margin: .3em 0;
         color: $white-color;
         font-size: .8rem;
         font-weight: normal;
