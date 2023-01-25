@@ -22,7 +22,7 @@ router.get('/', async (req, res) => {
         title: 'Sundsvalls Spegeln, Bio-Bar-Bistro',
         dropdownMenu: DROPDOWN_MENU,
         moviesOutNow: moviesOutNow,
-        moviesComingSoon: moviesOutNow
+        moviesComingSoon: MOVIE_TEMPLATES
     });
 });
 
