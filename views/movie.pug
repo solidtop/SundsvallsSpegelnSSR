@@ -5,7 +5,8 @@ block content
         
         div(class="col-movie-info") 
             h1(class="movie-title")=movie.attributes.title
-            p(class="movie-intro")=movie.attributes.intro
+            p(class="movie-intro")
+                !=md(movie.attributes.intro)
             
             section(class="cta")
                 a(class="button primary", href="/tickets") Köp Biljetter
