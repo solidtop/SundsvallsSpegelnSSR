@@ -1,5 +1,7 @@
 .out-now, .coming-soon, .all-movies {
     @include container;
+
+    margin-top: 2em;
 }
 
 .movie-list {
