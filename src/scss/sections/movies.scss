@@ -1,13 +1,14 @@
 .out-now, .coming-soon, .all-movies {
     @include container;
+    @include gradient-background();
 
     margin-top: 2em;
+    padding: 0 2em;
 }
 
 .movie-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, 250px);
-    justify-content: center;
     gap: 1em;
     overflow: hidden;
     padding: 2em 0;
@@ -23,9 +24,11 @@
     border: 2px rgba(white, .02);
     border-style: none solid none;
     box-shadow: 0 0 20px rgba(black, .5);
+    transition: background-color .2s;
 
     &:hover {
         cursor: pointer;
+        background-color: rgba(white, .1);
     }
 
     .movie-link {

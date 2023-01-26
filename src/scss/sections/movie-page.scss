@@ -32,6 +32,7 @@
     bottom: 2em;
     left: 2em;
     margin: 0;
+    margin-right: 2em;
     font-family: 'Abril Fatface', 'Poppins', sans-serif;
     font-size: 2.5rem;
     text-align: left;
@@ -41,11 +42,10 @@
 .movie-info {
     @include container;
 
-    padding: 1em;
+    padding: 2em;
 }
 
 .movie-poster {
-    margin: 0 auto;
     margin-bottom: 1em;
     padding: .5em;
     max-height: 20rem;
@@ -56,6 +56,9 @@
 }
 
 .col-movie-info {
+    @include gradient-background;
+
+    max-width: 800px;
     padding: 1em;
     color: $white-color;
     background-color: rgba(white, .05);
@@ -75,6 +78,10 @@
 
 .videos, .images, .reviews, .cast {
     margin: 2em 0;
+
+    i {
+        font-size: .7rem;
+    }
 }
 
 @media (min-width: $bp-medium) {

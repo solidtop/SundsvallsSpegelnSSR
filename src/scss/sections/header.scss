@@ -8,8 +8,7 @@
     &-logo {
         margin: 0;
         padding: 0;
-        width: 5rem;
-        border-radius: 20px;
+        width: 4rem;
     }
 }
 
@@ -22,12 +21,12 @@
         color: $text-color;
 
         &:hover {
-            @include text-gradient;
+            //@include text-gradient;
         }
     }
 }
 
-@media (min-width: $bp-medium) {
+@media (min-width: $bp-large) {
     .socials-list {
         display: flex;
     }

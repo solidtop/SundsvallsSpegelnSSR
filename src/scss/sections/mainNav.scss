@@ -1,24 +1,11 @@
-.main-nav {
-    @include container;
-    
-    border-radius: 5px;
-}
-
 .nav-menu {
     display: flex;
-    margin: 0;
+    flex-wrap: wrap;
+    column-gap: 3em;
+    row-gap: .3em;
     justify-content: center;
     align-items: center;
-    padding: 1em;
     text-align: center;
-
-    li  {
-        padding: 0 1.5em;
-
-        &:last-child {
-            border: none;
-        }
-    }
 
     a {
         font-size: .8rem;
@@ -36,7 +23,7 @@
     color: $text-color;
 }
 
-@media (max-width: $bp-medium) {
+@media (max-width: $bp-large) {
     .nav-menu {
         display: none;
     }
