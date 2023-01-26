@@ -1,0 +1,17 @@
+
+nav(class="pagination")
+    a(class="page-nav", href="#")
+        i(class="fa-solid fa-caret-left")
+
+    -
+        var list = [1, 2, 3, 4, 5]
+
+    ul(class="page-list")
+        each page in list
+            li 
+                a(href="#")=page
+    
+    a(class="page-nav", href="#")
+        i(class="fa-solid fa-caret-right")
+
+

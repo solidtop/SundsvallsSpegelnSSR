@@ -1,0 +1,54 @@
+.pagination {
+    @include container;
+
+    width: fit-content;
+    height: 1.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(white, .1);
+    border-radius: 10px;
+}
+
+.page-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: .8rem;
+    text-align: center;
+    border-radius: 5px;
+    width: 2rem;
+    height: 100%;
+
+    &:hover {
+        background-color: rgba(white, .1);
+    }
+}
+
+.page-list {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+
+    li {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+    }
+
+    a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: .7rem;
+        border-radius: 5px;
+        width: 2rem;
+        height: 100%;
+
+        &:hover {
+            background-color: rgba(white, .1);
+        }
+    }
+}
