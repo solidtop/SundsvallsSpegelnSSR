@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
     "start": "nodemon ."
   },
   "author": "",
@@ -17,6 +17,9 @@
     "pug": "^3.0.2"
   },
   "devDependencies": {
-    "nodemon": "^2.0.20"
+    "cross-env": "^7.0.3",
+    "jest": "^29.4.0",
+    "nodemon": "^2.0.20",
+    "supertest": "^6.3.3"
   }
 }
