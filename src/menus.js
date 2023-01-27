@@ -9,11 +9,11 @@ export default function getDropdownMenu() {
                 },
                 {
                     label: 'Kommande premiärer',
-                    href: ''
+                    href: '#'
                 },
                 {
                     label: 'Matinèfilm för 100kr',
-                    href: ''
+                    href: '#'
                 }
             ]
         },
@@ -22,7 +22,7 @@ export default function getDropdownMenu() {
             items: [
                 {
                     label: 'Salong Alcazar',
-                    href: ''
+                    href: '#'
                 }
             ]
         },
@@ -31,19 +31,19 @@ export default function getDropdownMenu() {
             items: [
                 {
                     label: 'Klassiker',
-                    href: ''
+                    href: '#'
                 },
                 {
                     label: 'Frukostbio',
-                    href: ''
+                    href: '#'
                 },
                 {
                     label: 'Cinemateket',
-                    href: ''
+                    href: '#'
                 },
                 {
                     label: 'Dokumentärer',
-                    href: ''
+                    href: '#'
                 }
             ]
         },
@@ -52,7 +52,7 @@ export default function getDropdownMenu() {
             items: [
                 {
                     label: 'Hela programmet',
-                    href: ''
+                    href: '#'
                 }
             ]
         }, 
@@ -61,7 +61,7 @@ export default function getDropdownMenu() {
             items: [
                 {
                     label: 'Meny',
-                    href: '',
+                    href: '#',
                 }
             ]
         }
