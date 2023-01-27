@@ -1,4 +1,4 @@
-export default function getMovieTemplates() {
+export default function getMoviePlaceholders() {
     const movies = [];
     for (let i = 0; i < 10; i++) {
         movies.push({

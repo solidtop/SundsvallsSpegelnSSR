@@ -71,8 +71,11 @@
     }
 }
 
-.movie-intro {
-    font-size: 7px;
+.movie-intro * {
+    font-size: .8rem;
+}
+
+.movie-intro p {
     font-weight: 300;
 }
 
