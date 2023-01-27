@@ -13,7 +13,7 @@ describe('Movies', () => {
         expect(titles.some(title => res.text.includes(title))).toBeTruthy();
     });
 
-    test("Show 404 status when movie doesn't exist", async () => {
+    test("Show 404 status page when movie doesn't exist", async () => {
         const res = await request(app)
             .get('/movies/10')
             .expect('Content-Type', 'text/html; charset=utf-8')

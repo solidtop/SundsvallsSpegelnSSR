@@ -5,8 +5,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
-    "start": "nodemon ."
+    "dev": "nodemon .",
+    "start": "node .",
+    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest"
   },
   "author": "",
   "license": "ISC",
