@@ -1,0 +1,536 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap");
+section {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+section h2 {
+  text-align: center;
+}
+section ul {
+  display: flex;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  margin: 0%;
+  height: 100%;
+  width: 100%;
+}
+section ul div {
+  margin: 0.1%;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 20em;
+  height: 25em;
+  background-color: #3E3737;
+}
+section ul div h3 {
+  background-color: #1f1717;
+  border-radius: 8px;
+  margin: 3%;
+}
+section ul div img {
+  margin: 3%;
+}
+
+ul, menu {
+  list-style: none;
+}
+
+a {
+  color: #E6E6E6;
+  text-decoration: none;
+  position: relative;
+}
+
+button {
+  cursor: pointer;
+}
+button:hover {
+  filter: brightness(150%);
+}
+
+img {
+  display: block;
+  object-fit: cover;
+}
+
+.button {
+  font-size: 0.7rem;
+  font-weight: bold;
+  padding: 0.6em 0.1em;
+  border: none;
+  border-radius: 83px;
+  text-align: center;
+}
+.button.primary {
+  background-color: #715fa6;
+}
+.button.primary:hover {
+  cursor: pointer;
+  filter: brightness(120%);
+}
+
+i {
+  color: #E6E6E6;
+}
+
+strong {
+  font-weight: 600;
+}
+
+.line {
+  display: block;
+  margin: 0 auto;
+  content: "";
+  width: 80%;
+  height: 0.15em;
+  border-radius: 83px;
+  background: linear-gradient(to left, #13ADC7, #6978D1, #945DD6);
+}
+
+body, html {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #0F1624;
+  color: #E6E6E6;
+}
+
+* {
+  font-family: "Poppins", sans-serif;
+}
+@media (min-width: 1000px) {
+  * {
+    font-size: 24px;
+  }
+}
+
+.status {
+  max-width: 1920px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.status i {
+  font-size: 4rem;
+  margin: 0.5em auto;
+  background: linear-gradient(to left, #13ADC7, #6978D1, #945DD6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.status-code, .status-message {
+  margin: 0;
+  text-align: center;
+  background: linear-gradient(to left, #13ADC7, #6978D1, #945DD6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.status-code {
+  font-size: 3rem;
+}
+
+.pagination {
+  max-width: 1920px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  width: fit-content;
+  height: 1.5em;
+  justify-content: center;
+  align-items: center;
+  margin: 1em auto;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.page-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8rem;
+  text-align: center;
+  border-radius: 10px;
+  width: 2rem;
+  height: 100%;
+}
+.page-nav:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.page-list {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0 1em;
+  height: 100%;
+}
+.page-list li {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+.page-list a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.7rem;
+  border-radius: 10px;
+  width: 2rem;
+  height: 100%;
+}
+.page-list a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.page-list a.selected {
+  background-color: #715fa6;
+}
+
+.header {
+  max-width: 1920px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5em 1em;
+}
+.header-logo {
+  margin: 0;
+  padding: 0;
+  width: 4rem;
+}
+
+.socials-list {
+  display: none;
+  gap: 0.5em;
+}
+.socials-list i {
+  font-size: 0.8rem;
+  color: #E6E6E6;
+}
+
+@media (min-width: 1000px) {
+  .socials-list {
+    display: flex;
+  }
+}
+.nav-menu {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 3em;
+  row-gap: 0.3em;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.nav-menu a {
+  font-size: 0.8rem;
+}
+
+.toggle-menu {
+  display: none;
+  position: absolute;
+  top: 0.2em;
+  right: 0.5em;
+  background: transparent;
+  border: none;
+  font-size: 2.5rem;
+  color: #E6E6E6;
+}
+
+@media (max-width: 1000px) {
+  .nav-menu {
+    display: none;
+  }
+  .toggle-menu {
+    display: block;
+  }
+}
+.sidebar-nav {
+  max-width: 1920px;
+  margin-left: auto;
+  margin-right: auto;
+  margin: auto;
+  border-radius: 5px;
+  border: 2px rgba(255, 255, 255, 0.05);
+  border-style: solid none none;
+}
+
+.nav-list {
+  position: relative;
+  padding: 1em;
+  margin: 0;
+}
+
+.dropdown-toggle {
+  display: block;
+  margin: 0.5em 0;
+  padding: 0.5em 2em;
+  padding-left: 1em;
+  text-align: center;
+  font-size: 16px;
+  color: #E6E6E6;
+  width: 100%;
+  background-color: rgba(141, 114, 225, 0.3);
+  border: none;
+  border-radius: 10px;
+}
+.dropdown-toggle::after {
+  content: "";
+  position: absolute;
+  width: 0.7em;
+  height: 0.5em;
+  margin: 0.5em 0.6em;
+  background-color: #E6E6E6;
+  clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+}
+
+.dropdown-toggle.selected {
+  filter: brightness(150%);
+}
+.dropdown-toggle.selected::after {
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+
+.dropdown-menu {
+  display: none;
+  padding: 0;
+  margin: 0.2em 1em;
+  z-index: 90;
+  border-radius: 5px;
+  background-color: #1d2a44;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+.dropdown-menu a {
+  display: block;
+  padding: 0.3em 1em;
+  text-align: center;
+  word-wrap: normal;
+  font-size: 16px;
+  font-weight: 300;
+  border-radius: 5px;
+}
+.dropdown-menu a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+@media (min-width: 600px) {
+  .dropdown-toggle {
+    background-color: transparent;
+  }
+  .nav-list {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 1em;
+    justify-content: center;
+    padding: 0.2em;
+  }
+  .dropdown-menu {
+    position: absolute;
+    margin: 0;
+  }
+  .dropdown-menu a {
+    text-align: left;
+  }
+}
+.out-now, .coming-soon, .all-movies {
+  max-width: 1920px;
+  margin-left: auto;
+  margin-right: auto;
+  background-image: linear-gradient(225deg, #062e37, #151e31, #211531 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  border-radius: 10px;
+  margin-bottom: 1em;
+  margin-top: 2em;
+  padding: 0 2em;
+}
+
+.movie-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 250px);
+  gap: 1em;
+  overflow: hidden;
+  padding: 2em 0;
+}
+
+.movie {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5em;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 5px;
+  border: 2px rgba(255, 255, 255, 0.02);
+  border-style: none solid none;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  transition: background-color 0.2s, transform 0.3s;
+}
+.movie:hover {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-5px);
+}
+.movie .movie-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.movie__poster {
+  height: 350px;
+}
+.movie__title {
+  margin: 0.3em 0;
+  color: #E6E6E6;
+  font-size: 0.8rem;
+  font-weight: normal;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.movie .button {
+  margin-top: 1em;
+  z-index: 10;
+  font-size: 0.65rem;
+}
+
+.movie.small {
+  max-width: 200px;
+}
+
+.content-text p {
+  max-width: 400px;
+  margin: 1rem auto;
+  text-align: center;
+  font-size: 16px;
+}
+
+.content-body {
+  background-color: #3E3737;
+  background-image: linear-gradient(225deg, #062e37, #151e31, #211531 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  border-radius: 10px;
+  margin-bottom: 1em;
+  max-width: 1280px;
+  margin: 0.3em auto;
+  border-radius: 5px;
+}
+
+.movie-hero {
+  max-width: 1920px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  overflow: hidden;
+}
+.movie-hero__image {
+  height: 360px;
+  display: block;
+  border-radius: 5px;
+}
+.movie-hero .vignette {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: inset 0 0 500px black;
+  border-radius: 5px;
+}
+.movie-hero .button {
+  position: absolute;
+  bottom: 2em;
+  left: 8em;
+  width: 8rem;
+}
+
+.movie-title {
+  position: absolute;
+  bottom: 2em;
+  left: 2em;
+  margin: 0;
+  margin-right: 2em;
+  font-family: "Abril Fatface", "Poppins", sans-serif;
+  font-size: 2.5rem;
+  text-align: left;
+  color: white;
+}
+
+.movie-info {
+  max-width: 1920px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2em;
+}
+
+.movie-poster {
+  margin-bottom: 1em;
+  padding: 0.5em;
+  max-height: 20rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 5px;
+  border: 2px rgba(255, 255, 255, 0.02);
+  border-style: none solid none;
+}
+
+.col-movie-info {
+  background-image: linear-gradient(225deg, #062e37, #151e31, #211531 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  border-radius: 10px;
+  margin-bottom: 1em;
+  max-width: 800px;
+  padding: 1em;
+  color: #E6E6E6;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 5px;
+  border: 2px rgba(255, 255, 255, 0.02);
+  border-style: none solid;
+}
+.col-movie-info .line {
+  margin-left: 0;
+}
+
+.movie-intro * {
+  font-size: 0.8rem;
+}
+
+.movie-intro p {
+  font-weight: 300;
+}
+
+.videos, .images, .reviews, .cast {
+  margin: 2em 0;
+}
+.videos i, .images i, .reviews i, .cast i {
+  font-size: 0.7rem;
+}
+
+@media (min-width: 600px) {
+  .movie-info {
+    display: flex;
+    gap: 1em;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */
