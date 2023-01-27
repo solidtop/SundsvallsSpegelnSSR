@@ -9,11 +9,10 @@ const MOVIE_PLACEHOLDERS = getMoviePlaceholders();
 //Homepage 
 router.get('/', async (req, res) => {
     const movies = await fetchMovies();
-    const sortedMovies = sortByDate(movies);
 
     const moviesToDisplay = 10;
     const moviesOutNow = movies.length > moviesToDisplay ? movies.slice(0, moviesToDisplay) : movies; //Slice first x movies to display
-  
+    
     res.render('index', {
         title: 'Sundsvalls Spegeln, Bio-Bar-Bistro',
         moviesOutNow: moviesOutNow,
