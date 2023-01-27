@@ -42,8 +42,7 @@ router.get('/movies/:id', async (req, res) => {
             title: movie.attributes.title,
             dropdownMenu: DROPDOWN_MENU,
             movie: movie,
-            md: marked //Send marked function to pug file so it can use markdown
-        });            //NOTE: It works but maybe not the best implementation if using md in more templates.. Couldn't find any other solution when using variables/dynamic text
+        });        
     } else {           
         res.status(404).render('404', {
             dropdownMenu: DROPDOWN_MENU

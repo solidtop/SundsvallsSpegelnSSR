@@ -11,8 +11,8 @@ block content
         img(class="movie-poster", src=movie.attributes.image.url)
         
         div(class="col-movie-info") 
-            p(class="movie-intro")
-                !=md(movie.attributes.intro)
+            p(class="movie-intro", style="font-size:5pt")
+                !=marked(movie.attributes.intro)
             
             section(class="videos")
                 h1=`Videor & Trailers för ${movie.attributes.title}`

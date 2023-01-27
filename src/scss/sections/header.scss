@@ -17,12 +17,8 @@
     gap: .5em;
     
     i {
-        font-size: 1rem;
+        font-size: .8rem;
         color: $text-color;
-
-        &:hover {
-            //@include text-gradient;
-        }
     }
 }
 

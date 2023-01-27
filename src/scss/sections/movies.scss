@@ -24,11 +24,12 @@
     border: 2px rgba(white, .02);
     border-style: none solid none;
     box-shadow: 0 0 20px rgba(black, .5);
-    transition: background-color .2s;
+    transition: background-color .2s, transform .3s;
 
     &:hover {
         cursor: pointer;
         background-color: rgba(white, .1);
+        transform: translateY(-5px);
     }
 
     .movie-link {

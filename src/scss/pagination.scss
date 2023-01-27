@@ -1,11 +1,12 @@
 .pagination {
     @include container;
 
+    display: flex;
     width: fit-content;
     height: 1.5em;
-    display: flex;
     justify-content: center;
     align-items: center;
+    margin: 1em auto;
     background-color: rgba(white, .1);
     border-radius: 10px;
 }
@@ -16,7 +17,7 @@
     align-items: center;
     font-size: .8rem;
     text-align: center;
-    border-radius: 5px;
+    border-radius: 10px;
     width: 2rem;
     height: 100%;
 
@@ -29,7 +30,7 @@
     display: flex;
     align-items: center;
     margin: 0;
-    padding: 0;
+    padding: 0 1em;
     height: 100%;
 
     li {
@@ -43,12 +44,16 @@
         justify-content: center;
         align-items: center;
         font-size: .7rem;
-        border-radius: 5px;
+        border-radius: 10px;
         width: 2rem;
         height: 100%;
 
         &:hover {
             background-color: rgba(white, .1);
         }
+    }
+
+    a.selected {
+        background-color: #715fa6;
     }
 }
