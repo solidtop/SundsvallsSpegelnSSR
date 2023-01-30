@@ -6,6 +6,12 @@ const router = express.Router();
 
 const MOVIE_PLACEHOLDERS = getMoviePlaceholders();
 
+function render404(res) {
+    res.status(404).render('404', {
+        title: '404: Not Found',
+    });   
+}
+
 //Homepage 
 router.get('/', async (req, res) => {
     const movies = await fetchMovies();
@@ -36,9 +42,7 @@ router.get('/movies/:id', async (req, res) => {
             movie: movie,
         });        
     } else {           
-        res.status(404).render('404' , {
-            title: '404: Not Found',
-        });
+        render404(res);
     }
 });
 
@@ -55,21 +59,15 @@ router.get('/about', (req, res) => {
 });
 
 router.get('/tickets', (req, res) => {
-    res.status(404).render('404', {
-        title: '404: Not Found',
-    });
+    render404(res);
 });
 
 router.get('/news', (req, res) => {
-    res.status(404).render('404', {
-        title: '404: Not Found',
-    });
+    render404(res);
 });
 
 router.get('/giftcard', (req, res) => {
-    res.status(404).render('404', {
-        title: '404: Not Found',
-    });
+    render404(res);
 });
 
 export default router;
