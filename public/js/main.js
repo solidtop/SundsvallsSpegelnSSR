@@ -1,4 +1,10 @@
 import NavMenuTrigger from "./navMenu.js";
-new NavMenuTrigger();
+import CarouselHandler from "./carousel.js";
+
+window.onload = () => {
+    new NavMenuTrigger();
+    new CarouselHandler();
+}
+
 
 

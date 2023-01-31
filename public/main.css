@@ -79,6 +79,7 @@ img {
 
 i {
   color: #E6E6E6;
+  pointer-events: none;
 }
 
 strong {
@@ -93,6 +94,15 @@ strong {
   height: 0.15em;
   border-radius: 83px;
   background: linear-gradient(to left, #13ADC7, #6978D1, #945DD6);
+}
+
+.vignette {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  box-shadow: inset 0 0 100px black;
+  background: linear-gradient(to left, transparent, black);
+  border-radius: 5px;
 }
 
 body, html {
@@ -346,6 +356,114 @@ body, html {
     text-align: left;
   }
 }
+.carousel {
+  max-width: 1920px;
+  margin-left: auto;
+  margin-right: auto;
+  display: none;
+  position: relative;
+  overflow: hidden;
+}
+@media (min-width: 600px) {
+  .carousel {
+    display: block;
+  }
+}
+
+.carousel-slides {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  scroll-behavior: smooth;
+  border-radius: 5px;
+}
+
+.slide {
+  position: relative;
+  flex: 1 0 100%;
+  height: 420px;
+}
+
+.slide-link {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+}
+
+.slide-image {
+  position: relative;
+  width: 100%;
+}
+
+.slide-wrapper {
+  display: block;
+  position: absolute;
+  width: auto;
+  height: auto;
+  inset: 0;
+  margin: 3em 8em;
+  background: none;
+  z-index: 2;
+}
+
+.slide__title, .slide__intro {
+  text-align: left;
+  margin: 0;
+  color: white;
+}
+
+.slide__title {
+  font-family: "Abril Fatface", "Poppins", sans-serif;
+  font-size: 2.5rem;
+}
+
+.slide__intro {
+  margin-top: 1em;
+  font-weight: 300;
+}
+
+.carousel-nav {
+  width: 100%;
+  position: absolute;
+  bottom: 0.5em;
+  display: flex;
+  justify-content: center;
+  z-index: 5;
+}
+
+.slide-arrow, .slide-page {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  color: white;
+}
+
+.slide-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slide-arrow {
+  margin: 0 0.5em;
+}
+.slide-arrow i {
+  font-size: 1.5rem;
+}
+
+.slide-page {
+  margin: 0 0.2em;
+}
+.slide-page i {
+  font-size: 0.5rem;
+}
+.slide-page.selected i {
+  color: #715fa6;
+}
+
 .out-now, .coming-soon, .all-movies {
   max-width: 1920px;
   margin-left: auto;
@@ -445,15 +563,6 @@ body, html {
 .movie-hero__image {
   height: 360px;
   display: block;
-  border-radius: 5px;
-}
-.movie-hero .vignette {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  box-shadow: inset 0 0 500px black;
   border-radius: 5px;
 }
 .movie-hero .button {

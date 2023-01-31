@@ -1,0 +1,25 @@
+div(class="carousel")
+    ul(class="carousel-slides")
+        each slide in slides
+            li(class="slide")
+                img(class="slide-image", src=slide.attributes.image.url, alt="slide image")   
+                div(class="slide-wrapper")
+                    h2(class="slide__title")=slide.attributes.title
+                    p(class="slide__intro") Gör som alla andra och boka biljetter till denna populära film! Spelas nu"
+                a(class="slide-link", href="/movies/" + slide.id)
+    div(class="vignette")  
+        
+    div(class="carousel-nav")
+        button(class="slide-arrow", id="slide-arrow-prev")    
+            i(class="fa-solid fa-chevron-left")
+
+        div(class="slide-pagination")
+            - for(var i = 0; i < slides.length; i++) 
+                button(class="slide-page") 
+                    i(class="fa-solid fa-circle")
+            
+                    
+        button(class="slide-arrow", id="slide-arrow-next")
+            i(class="fa-solid fa-chevron-right")
+
+
