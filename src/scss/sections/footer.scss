@@ -1,0 +1,61 @@
+.footer {
+    @include container;
+
+    display: block;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    padding: 2em;
+    border-radius: 5px;
+    border: 2px rgba(white, .05);
+    border-style: solid none none;
+
+    &__section {
+        padding: 1em;
+
+        h3 {
+            font-size: .8rem;
+            margin: .5em 0;
+        }
+
+        p {
+            font-size: .6rem;
+            font-weight: 300;
+            margin: 0;
+        }
+    }
+}
+
+.contacts {
+    display: block;
+    font-size: .7rem;
+
+    p {
+        font-weight: 600;
+        margin-bottom: .5em;
+    }
+
+    a {
+        display: block;
+        font-size: .6rem;
+        font-weight: 300;
+    }
+}
+
+.collaborations {
+    display: block;
+
+    li {
+        margin: .5em;
+        img {
+            max-height: 80px;
+            border-radius: 50%;
+        }
+    }
+    
+}
+
+@media (min-width: $bp-medium) {
+    .footer, .collaborations {
+        display: flex;
+    }
+}

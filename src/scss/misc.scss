@@ -78,6 +78,11 @@ a {
     color: $text-color;
     text-decoration: none;
     position: relative;
+
+    &:hover {
+        color: $c-purple;
+        filter: brightness(120%);
+    }
 }
 
 button {
@@ -114,6 +119,11 @@ img {
 i {
     color: $text-color;
     pointer-events: none;
+
+    &:hover {
+        color: $c-purple;
+        filter: brightness(120%);
+    }
 }
 
 strong {

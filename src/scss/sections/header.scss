@@ -16,9 +16,12 @@
     display: none;
     gap: .5em;
     
+    a:hover i {
+        color: $c-purple;
+    }
+
     i {
         font-size: .8rem;
-        color: $text-color;
     }
 }
 
