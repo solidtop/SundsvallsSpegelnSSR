@@ -78,11 +78,11 @@ a {
     color: $text-color;
     text-decoration: none;
     position: relative;
+}
 
-    &:hover {
-        color: $c-purple;
-        filter: brightness(120%);
-    }
+.link:hover{
+    color: $c-purple;
+    filter: brightness(120%);
 }
 
 button {

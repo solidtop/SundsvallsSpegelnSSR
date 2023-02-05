@@ -9,8 +9,8 @@ html(lang="en")
         link(rel="icon", type="image/x-icon", href="/assets/favicon.ico")
         title=title
 
+        script(src="/js/main.js", type="module")
         block scripts
-            script(src="/js/main.js", type="module")
     body
         header(class="header")
             a(href="/")
@@ -22,15 +22,15 @@ html(lang="en")
 
                 menu(class="nav-menu")
                     li
-                        a(href="/contact") Öppettider & Kontakt
+                        a(class="link", href="/contact") Öppettider & Kontakt
                     li
-                        a(href="/about") Om Spegeln
+                        a(class="link", href="/about") Om Spegeln
                     li
-                        a(href="/tickets") Biljettinfo
+                        a(class="link", href="/tickets") Biljettinfo
                     li
-                        a(href="/news") Vill du ha vårt nyhetsbrev?
+                        a(class="link", href="/news") Vill du ha vårt nyhetsbrev?
                     li
-                        a(href="/giftcard") Köp presentkort
+                        a(class="link", href="/giftcard") Köp presentkort
 
             ul(class="socials-list")
                 li
@@ -70,12 +70,12 @@ html(lang="en")
                 h3 KONTAKTA OSS
                 adress(class="contacts")
                         p E-post:
-                            a(href="#") info@sundsvallsspegeln.se   
+                            a(class="link", href="#") info@sundsvallsspegeln.se   
                         p Följ oss på
-                            a(href="#") Facebook
-                            a(href="#") Instagram
+                            a(class="link", href="#") Facebook
+                            a(class="link", href="#") Instagram
                         p Telefon alla dagar 14-21:
-                            a(href="#") 073-026 94 06 
+                            a(class="link", href="#") 073-026 94 06 
 
             section(class="footer__section")
                 h3 I SAMARBETE MED

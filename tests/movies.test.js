@@ -1,5 +1,5 @@
 import request from 'supertest';
-import app from '../index.js';
+import app from '../src/app.js';
 
 const titles = ['Isle of dogs', 'The Shawshank Redemption', 'Encanto', 'Min granne Totoro'];
 

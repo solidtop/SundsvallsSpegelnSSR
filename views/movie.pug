@@ -1,4 +1,9 @@
 extends main-layout.pug 
+
+block scripts 
+    script(src="/js/screenings.js", type="module")
+    script(src="/js/reviews.js", type="module")
+
 block content 
     section(class="movie-hero")
         img(class="movie-hero__image", src="https://www.themoviedb.org/t/p/original/ik3sCC9fziS4SnagwRAQWPytBtj.jpg", alt="Movie hero image")
@@ -22,13 +27,24 @@ block content
                 h1=`Bilder för ${movie.attributes.title}`
                 i Kommer Snart
 
-            section(class="reviews")
-                h1 Recensioner
-                i Kommer Snart
-
             section(class="cast")
                 h1 Rolllista
                 i Kommer Snart
+
+            section(class="reviews")
+                h1 Recensioner & Betyg
+                ul(class="review-list")
+                    
+
+                      
+
+
+
+
+
+
+    
+    
 
 
 

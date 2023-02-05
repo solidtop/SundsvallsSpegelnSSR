@@ -55,3 +55,5 @@ export default class CarouselHandler {
         this.slidesContainer.scrollLeft = slideWidth * this.currentPage;
     }
 }
+
+new CarouselHandler();

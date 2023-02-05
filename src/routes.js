@@ -1,5 +1,5 @@
 import express from 'express';
-import { fetchMovies, fetchMovie } from './movies.js'; 
+import { fetchMovies, fetchMovie } from './routes/movies.js'; 
 import getMoviePlaceholders from './placeholders.js'
 import { sortByDate } from './sorting.js';
 const router = express.Router();
@@ -25,26 +25,6 @@ router.get('/', async (req, res) => {
         moviesComingSoon: MOVIE_PLACEHOLDERS,
         slides: moviesOutNow
     });
-});
-
-router.get('/movies', async(req, res) => {
-    const movies = await fetchMovies();
-    res.render('movies', {
-        title: 'Nya Filmer, Heta Filmer, Kommande Filmer, Alla Filmer',
-        movies: movies
-    });   
-});
-
-router.get('/movies/:id', async (req, res) => {
-    const movie = await fetchMovie(req.params.id);
-    if (movie) {
-        res.render('movie', {
-            title: movie.attributes.title,
-            movie: movie,
-        });        
-    } else {           
-        render404(res);
-    }
 });
 
 router.get('/contact', (req, res) => {
