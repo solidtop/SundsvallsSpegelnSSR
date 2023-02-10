@@ -5,9 +5,10 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon .",
+    "dev": "nodemon .", 
     "start": "node .",
-    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest"
+    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
+    "build": "sass --no-source-map --watch src/scss/main.scss:public/main.css"
   },
   "author": "",
   "license": "ISC",

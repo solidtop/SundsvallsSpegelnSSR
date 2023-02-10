@@ -9,8 +9,8 @@ export default class APIAdapter {
 
     }
 
-    async fetchReviews(id) {
-        const res = await fetch(`/api/movies/${id}/reviews`);
+    async fetchReviews(path, query = '') {
+        const res = await fetch(`/api${path}/reviews${query}`);
         return await res.json();
     }
 }

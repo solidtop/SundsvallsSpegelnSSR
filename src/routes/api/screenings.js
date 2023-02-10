@@ -7,7 +7,7 @@ router.get('/upcoming-screenings', async (req, res) => {
     const data = await api.fetchUpcomingScreenings();
     const filteredData = filterUpcomingScreenings(data);
     const dates = getScreeningDates(filteredData);
-    res.json({
+    res.send({
         dates: dates,
         screenings: filteredData,
     });

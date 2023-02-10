@@ -15,7 +15,6 @@ router.get('/', async(req, res) => {
 
 router.get('/:id', async (req, res) => {
     const movie = await api.fetchMovie(req.params.id);
-    console.log(movie);
     if (movie) {
         res.render('movie', {
             title: movie.attributes.title,

@@ -1,17 +1,21 @@
-import APIAdapter from "./apiAdapter.js";
+import APIAdapter from './apiAdapter.js';
+import Pagination from './pagination.js'; 
 
 class ReviewList {
 
-    constructor(reviews) {
-        this.reviews = reviews;
-    }
-
-    render() {
+    render(reviews) {
         const list = document.querySelector('.review-list');
-        this.reviews.forEach(review => {
+        reviews.forEach(review => {
             const card = new Review(review).render();
             list.append(card);
         });
+    }
+
+    update(reviews) {
+        const list = document.querySelector('.review-list');
+        list.innerHTML = '';
+
+        this.render(reviews);
     }
 }
 
@@ -79,40 +83,28 @@ class Review {
 
 const api = new APIAdapter();
 const path = window.location.pathname;
-const reviews = [
-    {
-        attributes: {
-            comment: 'Jättebra film!',
-            rating: 3,
-            author: 'Mustyplumber',
-            createdAt: '2023-02-02T12:24:12.887Z',
-        }
-    },
-    {
-        attributes: {
-            comment: 'Japanska versionen är perfekt, alla dubbade versioner är katastrof.',
-            rating: 5,
-            author: 'Noel',
-            createdAt: '2023-02-02T12:24:12.887Z',
-        }
-    },
-    {
-        attributes: {
-            comment: 'Bra film, men för låga tonarter för sångarens röst!',
-            rating: 3,
-            author: 'Alice',
-            createdAt: '2023-02-02T12:24:12.887Z',
-        }
-    },
-    {
-        attributes: {
-            comment: 'Den var lite konstig för hundarna pratade.',
-            rating: 2,
-            author: 'Jan',
-            createdAt: '2023-02-02T12:24:12.887Z',
-        }
-    },
-];
-    
+const data = await api.fetchReviews(path);
+if (data.reviews) {
+    console.log('wtf')
+    const reviewList = new ReviewList();
+    reviewList.render(data.reviews);
 
-new ReviewList(reviews).render();
+
+    const pagination = new Pagination(data.pagination);
+    const container = document.querySelector('.reviews');
+    pagination.render(container);
+
+    const action = {
+        changePage: async (page) => {
+            const data = await api.fetchReviews(path, '?page=' + page);
+            reviewList.update(data.reviews);
+            pagination.update(data.pagination, container);
+            pagination.input(action);
+        }
+    };
+
+    pagination.input(action);
+}
+
+
+

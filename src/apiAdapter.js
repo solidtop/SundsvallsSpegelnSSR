@@ -6,20 +6,27 @@ class APIAdapter {
 
     async fetchMovies() {
         const res = await fetch(API_URL + '/movies');
-        const data = await res.json();
-        return data.data;
+        const payload = await res.json();
+        return payload.data;
     }
 
     async fetchMovie(id) {
         const res = await fetch(API_URL + '/movies/' + id);
-        const data = await res.json();
-        return data.data;
+        const payload = await res.json();
+        return payload.data;
     }
 
     async fetchUpcomingScreenings() {
         const res = await fetch(API_URL + '/screenings?populate=movie');
-        const data = await res.json();
-        return data.data;
+        const payload = await res.json();
+        return payload.data;
+    }
+
+    async fetchReviews(id, page = 0) {
+        const pageQuery = `pagination[page]=${page}&pagination[pageSize]=5`;
+        const res = await fetch(API_URL + `/reviews?filters[movie]=${id}&${pageQuery}`);
+        const payload = await res.json();
+        return payload;
     }
 }
 
