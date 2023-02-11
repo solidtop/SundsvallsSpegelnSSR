@@ -13,4 +13,9 @@ export default class APIAdapter {
         const res = await fetch(`/api${path}/reviews${query}`);
         return await res.json();
     }
+
+    async fetchRating(path) {
+        const res = await fetch(`/api${path}/ratings`);
+        return await res.json(); 
+    }
 }

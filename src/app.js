@@ -6,6 +6,7 @@ import APIAdapter from './apiAdapter.js';
 import moviesRoute from './routes/movies.js';
 import screeningsRoute from './routes/api/screenings.js';
 import reviewsRoute from './routes/api/reviews.js';
+import ratingsRoute from './routes/api/ratings.js';
 
 const app = express();
 app.set('view engine', 'pug');
@@ -15,6 +16,7 @@ app.locals.dropdownMenu = getDropdownMenu();
 app.use('/movies', moviesRoute);        
 app.use('/api', screeningsRoute);        
 app.use('/api', reviewsRoute);        
+app.use('/api', ratingsRoute);        
 
 //Static files
 app.use('/', express.static('public'));

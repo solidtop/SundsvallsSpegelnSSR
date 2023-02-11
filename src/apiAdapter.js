@@ -28,6 +28,38 @@ class APIAdapter {
         const payload = await res.json();
         return payload;
     }
+
+    async fetchRating(id) {
+        const query =  `/reviews?populate=movie&filters[movie]=${id}&fields=rating`;
+        const res = await fetch(API_URL + query);
+        const payload = await res.json();
+        const ratings = payload.data.map(rating => rating.attributes.rating);
+
+        let averageRating, maxRating;
+        if (ratings.length >= 5) {
+            let sumOfRatings = 0;
+            ratings.forEach(rating => {
+                sumOfRatings += rating;
+            });
+           averageRating = Math.floor((sumOfRatings / ratings.length * 10)) / 10;
+           maxRating = 5;
+        } else {
+            const { imdbId } = payload.data[0].attributes.movie.data.attributes;
+            averageRating = await this.fetchIMDBRating(imdbId);
+            maxRating = 10;
+        }
+
+        return {
+            rating: averageRating,
+            maxRating: maxRating,
+        };
+    }
+
+    async fetchIMDBRating(imdbId) {
+        const res = await fetch(`http://www.omdbapi.com/?i=${imdbId}&apikey=6a9f2053`);
+        const data = await res.json();
+        return data.imdbRating;
+    }
 }
 
 export default APIAdapter;

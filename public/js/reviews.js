@@ -85,10 +85,8 @@ const api = new APIAdapter();
 const path = window.location.pathname;
 const data = await api.fetchReviews(path);
 if (data.reviews) {
-    console.log('wtf')
     const reviewList = new ReviewList();
     reviewList.render(data.reviews);
-
 
     const pagination = new Pagination(data.pagination);
     const container = document.querySelector('.reviews');
@@ -105,6 +103,4 @@ if (data.reviews) {
 
     pagination.input(action);
 }
-
-
 

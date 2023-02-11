@@ -2,6 +2,7 @@ extends main-layout.pug
 
 block scripts 
     script(src="/js/reviews.js", type="module")
+    script(src="/js/rating.js", type="module")
     script(src="/js/pagination.js", type="module")
 
 block content 
@@ -10,6 +11,7 @@ block content
         div(class="vignette")
         h1(class="movie-title")=movie.attributes.title
             div(class="line")
+        div(class="meta-details")
         a(class="button primary", href="/tickets") Köp Biljetter
     
     article(class="movie-info")

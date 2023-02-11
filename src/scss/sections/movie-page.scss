@@ -9,6 +9,40 @@
         border-radius: 5px;
     }
 
+    .meta-details {
+        position: absolute;
+        bottom: 4.5em;
+        left: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: fit-content;
+        height: fit-content;
+        z-index: 10;
+        margin: 0 5em;
+
+        .rating {
+            display: flex;
+            justify-content: flex-start;
+    
+            &__star {
+                object-fit: scale-down;
+                width: .8rem;
+            }
+    
+            &__label {
+                margin: 0 .3em;
+                font-size: .8rem;
+                font-weight: 300;
+    
+                span {
+                    font-size: .6rem;
+                    color: rgba(white, .5);
+                }
+            }
+        }
+    }
+
     .button {
         position: absolute;
         bottom: 2em;
@@ -19,7 +53,7 @@
 
 .movie-title {
     position: absolute;
-    bottom: 2em;
+    bottom: 2.5em;
     left: 2em;
     margin: 0;
     margin-right: 2em;
