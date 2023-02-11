@@ -11,6 +11,13 @@ export default class Pagination {
         nav.classList.add('pagination');
         this.nav = nav;
 
+        const pageFirst = document.createElement('a');
+        pageFirst.classList.add('page-nav');
+        pageFirst.id = 'page-first';
+        pageFirst.href = '#';
+        pageFirst.innerHTML = '<i class="fa-solid fa-angles-left"></i>';
+        nav.append(pageFirst);
+
         const navPrev = document.createElement('a');
         navPrev.classList.add('page-nav');
         navPrev.id = 'page-prev';
@@ -22,9 +29,13 @@ export default class Pagination {
         ul.classList.add('page-list');
         nav.append(ul);
 
-        this.minInd = clamp(this.meta.page-2, 0, (this.meta.pageCount-1) - (this.pagesToDisplay-1))
-        this.maxInd = Math.min(this.minInd + this.pagesToDisplay, this.meta.pageCount);
-        for (let i = this.minInd; i < this.maxInd; i++) {
+        let startIdx = 0;
+        if (this.meta.page >= 5) {
+            startIdx = clamp(this.meta.page-2, 0, (this.meta.pageCount-1) - (this.pagesToDisplay-1))
+        }
+        const endInd = Math.min(startIdx + this.pagesToDisplay, this.meta.pageCount);
+
+        for (let i = startIdx; i < endInd; i++) {
             const li = document.createElement('li');
             ul.append(li);
 
@@ -38,13 +49,19 @@ export default class Pagination {
             li.append(a);
         }
         
-
         const navNext = document.createElement('a');
         navNext.classList.add('page-nav');
         navNext.id = 'page-next';
         navNext.href = '#';
         navNext.innerHTML = '<i class="fa-solid fa-caret-right"></i>';
         nav.append(navNext);
+
+        const pageLast = document.createElement('a');
+        pageLast.classList.add('page-nav');
+        pageLast.id = 'page-last';
+        pageLast.href = '#';
+        pageLast.innerHTML = '<i class="fa-solid fa-angles-right"></i>';
+        nav.append(pageLast);
 
         container.append(nav);
         return nav;
@@ -62,17 +79,41 @@ export default class Pagination {
             e.preventDefault();
 
             let page = this.meta.page;
-            if (e.target.id === 'page-prev') {
-                if (page > 0) {
-                    action.changePage(--page);
-                }
-            } else if (e.target.id === 'page-next') {
-                if (page < this.meta.pageCount) {
-                    action.changePage(++page);
-                }
-            } else if (e.target.id != '') { 
-                const page = parseInt(e.target.id);
-                action.changePage(page + 1);
+            const pageCount = this.meta.pageCount;
+            switch(e.target.id) {
+                case 'page-prev':
+                    if (page > 1) {
+                        action.changePage(--page);
+                    }
+                    break;
+
+                case 'page-next':
+                    if (page < pageCount) {
+                        action.changePage(++page);
+                    }
+                    break;
+                
+                case 'page-first':
+                    if (page !== 1) {
+                        action.changePage(1);
+                    }
+                    break;
+
+                case 'page-last':
+                    if (page !== pageCount) {
+                        action.changePage(pageCount);
+                    }
+                    break;
+                    
+                default: 
+                    if (e.target.id != '') { 
+                        const page = parseInt(e.target.id);
+                        if (page !== page-1) {
+                            action.changePage(page + 1);
+                        }
+                    }
+                    break;
+
             }
         });
     }
