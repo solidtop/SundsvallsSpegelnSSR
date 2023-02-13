@@ -3,14 +3,27 @@ import APIAdapter from '../../apiAdapter.js';
 const router = express.Router();
 const api = new APIAdapter();
 
+router.get('/movies/:id/screenings', async (req, res) => {
+    const screenings = await api.fetchScreenings(req.params.id);
+    if (screenings) {
+        res.send(screenings);
+    } else {
+        res.status(404).end();
+    }
+});
+
 router.get('/upcoming-screenings', async (req, res) => {
-    const data = await api.fetchUpcomingScreenings();
-    const filteredData = filterUpcomingScreenings(data);
+    const screenings = await api.fetchUpcomingScreenings();
+    const filteredData = filterUpcomingScreenings(screenings);
     const dates = getScreeningDates(filteredData);
-    res.send({
-        dates: dates,
-        screenings: filteredData,
-    });
+    if (screenings && dates) {
+        res.send({
+            dates: dates,
+            screenings: filteredData,
+        });
+    } else {
+        res.status(404).end();
+    }
 });
 
 function filterUpcomingScreenings(screenings) {

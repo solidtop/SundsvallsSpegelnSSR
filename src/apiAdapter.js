@@ -16,6 +16,12 @@ class APIAdapter {
         return payload.data;
     }
 
+    async fetchScreenings(id) {
+        const res = await fetch(API_URL + '/screenings?filters[movie]=' + id);
+        const payload = await res.json();
+        return payload.data;
+    }
+
     async fetchUpcomingScreenings() {
         const res = await fetch(API_URL + '/screenings?populate=movie');
         const payload = await res.json();
