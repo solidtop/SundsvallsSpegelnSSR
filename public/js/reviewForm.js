@@ -1,4 +1,4 @@
-
+import APIAdapter from './apiAdapter.js';
 
 class ReviewForm {
 
@@ -180,9 +180,15 @@ class Modal {
 }
 
 const toggle = document.querySelector('.toggle-review-form');
-toggle.addEventListener('click', () => {
+toggle.addEventListener('click', async () => {
+    const api = new APIAdapter();
+    const path = window.location.pathname;
+    const id = path.substring(path.lastIndexOf('/') + 1);
+    const data = await api.fetchMovie(id);
+    const title = data.attributes.title;
+
     const modal = new Modal().render();
-    const reviewForm = new ReviewForm().render();
+    const reviewForm = new ReviewForm().render(title);
     modal.append(reviewForm);
 });
 

@@ -1,9 +1,10 @@
 import express from 'express';
 import APIAdapter from '../../apiAdapter.js';
 const router = express.Router();
+const api = new APIAdapter();
+
 
 router.get('/movies/:id/reviews', async (req, res) => {
-    const api = new APIAdapter();
     const id = req.params.id;
     const page = req.query.page || '';
     const payload = await api.fetchReviews(id, page);
@@ -18,7 +19,6 @@ router.get('/movies/:id/reviews', async (req, res) => {
 });
 
 router.post('/movies/:id/reviews', async (req, res) => {
-    const api = new APIAdapter();
     const id = req.params.id;
     const movie = await api.fetchMovie(id);
     const review = {
