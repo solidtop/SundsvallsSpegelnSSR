@@ -100,7 +100,6 @@ class ReviewForm {
                 this.form.reset();
                 this.showMessage('');
                 window.location.reload();
-
             } else {
                 this.showMessage(status.message);
             }
@@ -186,13 +185,5 @@ toggle.addEventListener('click', () => {
     const reviewForm = new ReviewForm().render();
     modal.append(reviewForm);
 });
-
- const modal = new Modal().render();
-    const reviewForm = new ReviewForm();
-    modal.append(reviewForm.render());
-
-    reviewForm.showMessage('Felaktigt betyg');
-
-
 
 

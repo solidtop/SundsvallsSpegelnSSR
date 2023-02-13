@@ -1,14 +1,14 @@
 import express from 'express';
-import moviesRoute from './routes/movies.js';
-import screeningsRoute from './routes/api/screenings.js';
-import reviewsRoute from './routes/api/reviews.js';
-import ratingsRoute from './routes/api/ratings.js';
+import moviesRouter from './routes/movies.js';
+import screeningsRouter from './routes/api/screenings.js';
+import reviewsRouter from './routes/api/reviews.js';
+import ratingsRouter from './routes/api/ratings.js';
 
 const router = express.Router();
 
-router.use('/movies', moviesRoute);        
-router.use('/api', screeningsRoute);        
-router.use('/api', reviewsRoute);        
-router.use('/api', ratingsRoute);        
+router.use('/movies', moviesRouter);        
+router.use('/api', screeningsRouter);        
+router.use('/api', reviewsRouter);        
+router.use('/api', ratingsRouter);        
 
 export default router;
