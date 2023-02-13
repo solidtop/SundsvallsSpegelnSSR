@@ -15,7 +15,24 @@
         margin: 0;
     }
 
-    &__author, &__comment {
+    .message {
+        display: none;
+        font-size: 16px;
+        font-weight: 300;
+        color: #F75D59;
+        padding: .5em;
+        border: 2px solid rgba(white, .02);
+        border-style: none solid none;
+        border-radius: 5px;
+        background-color: rgba(#C24641, .2);
+        box-sizing: border-box;
+
+        &.show {
+            display: block;
+        }
+    }
+
+    &__author, &__comment, .message {
         width: 100%;
         margin: .5em 0;
     }

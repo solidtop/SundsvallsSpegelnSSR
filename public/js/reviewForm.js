@@ -12,6 +12,10 @@ class ReviewForm {
         h2.textContent = 'Din Recension för ' + title;
         form.append(h2);
 
+        const message = document.createElement('strong');
+        message.classList.add('message');
+        form.append(message);
+
         const h3 = document.createElement('h3');
         h3.textContent = 'Ditt Betyg';
         form.append(h3);
@@ -79,7 +83,7 @@ class ReviewForm {
             e.preventDefault();
 
             //POST form to server
-           /*const data = new URLSearchParams(new FormData(this.form));
+            const data = new URLSearchParams(new FormData(this.form));
             const path = window.location.pathname;
             const res = await fetch('/api' + path + '/reviews', {
                 method: 'POST',
@@ -87,10 +91,10 @@ class ReviewForm {
                     'Content-Type': 'application/x-www-form-urlencoded',
                 },
                 body: data,
-            });*/
+            });
 
             const payload = await res.json();
-            const status = {code: 200};//payload.status;
+            const status = payload.status;
 
             if (status.code === 200) {
                 this.form.reset();
@@ -114,8 +118,12 @@ class ReviewForm {
         });
     }
 
-    showMessage(message) {
-        document.querySelector('.message').textContent = message;
+    showMessage(text) {
+        const msg = document.querySelector('.message');
+        if (!msg.classList.contains('show')) {
+            msg.classList.add('show');
+        }
+        msg.textContent = text;
     }
 
     updateRatingIndicator() {
@@ -148,6 +156,11 @@ class Modal {
         content.classList.add('modal-content');
         modal.append(content);
 
+        const button = document.createElement('button');
+        button.classList.add('button-close-modal');
+        button.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+        content.append(button);
+
         this.input();
         return content;
     }
@@ -155,7 +168,8 @@ class Modal {
     input() {
         document.body.addEventListener('click', e => {
             if (e.target.classList.contains('modal-container') 
-            && !e.target.classList.contains('modal-content')) {
+            && !e.target.classList.contains('modal-content') 
+            || e.target.classList.contains('button-close-modal')) {
                 this.close();
             }
         });
@@ -172,5 +186,13 @@ toggle.addEventListener('click', () => {
     const reviewForm = new ReviewForm().render();
     modal.append(reviewForm);
 });
+
+ const modal = new Modal().render();
+    const reviewForm = new ReviewForm();
+    modal.append(reviewForm.render());
+
+    reviewForm.showMessage('Felaktigt betyg');
+
+
 
 

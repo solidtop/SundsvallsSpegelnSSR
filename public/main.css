@@ -57,9 +57,6 @@ a {
 button {
   cursor: pointer;
 }
-button:hover {
-  filter: brightness(150%);
-}
 
 img {
   display: block;
@@ -79,7 +76,6 @@ img {
   color: #E6E6E6;
 }
 .button.primary:hover {
-  cursor: pointer;
   filter: brightness(120%);
 }
 
@@ -273,6 +269,21 @@ body, html {
   padding: 0;
   z-index: 10;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.button-close-modal {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 8px 15px;
+  height: max-content;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  text-align: center;
+}
+.button-close-modal i {
+  font-size: 32px;
 }
 
 .header {
@@ -760,7 +771,22 @@ body, html {
   font-size: 18px;
   margin: 0;
 }
-.review-form__author, .review-form__comment {
+.review-form .message {
+  display: none;
+  font-size: 16px;
+  font-weight: 300;
+  color: #F75D59;
+  padding: 0.5em;
+  border: 2px solid rgba(255, 255, 255, 0.02);
+  border-style: none solid none;
+  border-radius: 5px;
+  background-color: rgba(194, 70, 65, 0.2);
+  box-sizing: border-box;
+}
+.review-form .message.show {
+  display: block;
+}
+.review-form__author, .review-form__comment, .review-form .message {
   width: 100%;
   margin: 0.5em 0;
 }

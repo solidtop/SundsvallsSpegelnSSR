@@ -16,3 +16,19 @@
     z-index: 10;
     box-shadow: 0 0 20px rgba(black, .5);
 }
+
+.button-close-modal {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 8px 15px;
+    height: max-content;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    text-align: center;
+
+    i {
+        font-size: 32px;
+    }
+}

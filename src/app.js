@@ -1,24 +1,20 @@
 import express from 'express';
+import bodyParser from 'body-parser';
 import { marked } from 'marked';
 import getDropdownMenu from './menus.js';
 import getMoviePlaceholders from './placeholders.js';
 import APIAdapter from './apiAdapter.js';
-import moviesRoute from './routes/movies.js';
-import screeningsRoute from './routes/api/screenings.js';
-import reviewsRoute from './routes/api/reviews.js';
-import ratingsRoute from './routes/api/ratings.js';
+import router from './routers.js';
 
 const app = express();
 app.set('view engine', 'pug');
 app.locals.marked = marked; //Save marked func in locals so it can be used in template files
 app.locals.dropdownMenu = getDropdownMenu();
 
-app.use('/movies', moviesRoute);        
-app.use('/api', screeningsRoute);        
-app.use('/api', reviewsRoute);        
-app.use('/api', ratingsRoute);        
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
 
-//Static files
+app.use(router);
 app.use('/', express.static('public'));
 
 const MOVIE_PLACEHOLDERS = getMoviePlaceholders();

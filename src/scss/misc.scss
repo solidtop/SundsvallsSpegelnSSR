@@ -87,10 +87,6 @@ a {
 
 button {
     cursor: pointer;
-
-    &:hover {
-        filter: brightness(150%);
-    }
 }
 
 img {
@@ -111,7 +107,6 @@ img {
         color: $text-color;
 
         &:hover {
-            cursor: pointer;
             filter: brightness(120%);
         }
     }

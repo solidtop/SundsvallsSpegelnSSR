@@ -29,6 +29,10 @@ class APIAdapter {
         return payload;
     }
 
+    async postReview(review, verified = false) {
+        
+    }
+
     async fetchRating(id) {
         const query =  `/reviews?populate=movie&filters[movie]=${id}&fields=rating`;
         const res = await fetch(API_URL + query);
