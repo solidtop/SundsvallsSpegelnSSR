@@ -261,6 +261,8 @@ body, html {
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 5;
   overflow-y: scroll;
+  animation: fade-in 0.3s;
+  overscroll-behavior: contain;
 }
 
 .modal-content {
@@ -269,6 +271,7 @@ body, html {
   padding: 0;
   z-index: 10;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  animation: scale-in 0.2s;
 }
 
 .button-close-modal {
@@ -285,7 +288,26 @@ body, html {
 .button-close-modal i {
   font-size: 32px;
 }
+.button-close-modal:hover i {
+  color: #715fa6;
+}
 
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes scale-in {
+  from {
+    transform: scale(0.9);
+  }
+  to {
+    transform: scale(1);
+  }
+}
 .header {
   max-width: 1920px;
   margin-left: auto;

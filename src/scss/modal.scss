@@ -7,6 +7,10 @@
     background-color: rgba(black, .5);
     z-index: 5;
     overflow-y: scroll;
+    animation: fade-in .3s;
+
+    overscroll-behavior: contain;
+
 }
 
 .modal-content {
@@ -15,6 +19,7 @@
     padding: 0;
     z-index: 10;
     box-shadow: 0 0 20px rgba(black, .5);
+    animation: scale-in .2s;
 }
 
 .button-close-modal {
@@ -30,5 +35,29 @@
 
     i {
         font-size: 32px;
+    }
+
+    &:hover i {
+        color: $c-purple;
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes scale-in {
+    from {
+        transform: scale(.9);
+    }
+
+    to {
+        transform: scale(1);
     }
 }
