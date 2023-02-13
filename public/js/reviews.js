@@ -104,3 +104,5 @@ if (data.reviews) {
     pagination.input(action);
 }
 
+document.querySelector('.total-reviews').textContent = ` (${data.pagination.total})`;
+

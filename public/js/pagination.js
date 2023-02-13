@@ -25,6 +25,11 @@ export default class Pagination {
         navPrev.innerHTML = '<i class="fa-solid fa-caret-left"></i>';
         nav.append(navPrev);
 
+        if (this.meta.page === 1) {
+            pageFirst.classList.add('disabled');
+            navPrev.classList.add('disabled');
+        }
+
         const ul = document.createElement('ul');
         ul.classList.add('page-list');
         nav.append(ul);
@@ -45,7 +50,7 @@ export default class Pagination {
             a.textContent = i + 1;
             if (i === this.meta.page - 1) {
                 a.classList.add('selected');
-            }
+            } 
             li.append(a);
         }
         
@@ -62,6 +67,11 @@ export default class Pagination {
         pageLast.href = '#';
         pageLast.innerHTML = '<i class="fa-solid fa-angles-right"></i>';
         nav.append(pageLast);
+
+        if (this.meta.page === this.meta.pageCount) {
+            pageLast.classList.add('disabled');
+            navNext.classList.add('disabled');
+        }
 
         container.append(nav);
         return nav;
@@ -108,7 +118,7 @@ export default class Pagination {
                 default: 
                     if (e.target.id != '') { 
                         const page = parseInt(e.target.id);
-                        if (page !== page-1) {
+                        if (this.meta.page !== page+1) {
                             action.changePage(page + 1);
                         }
                     }

@@ -1,13 +1,25 @@
-.review-list {
+.total-reviews {
+    font-size: .8rem;
+    color: rgba(white, .6);
+}
 
+.toggle-review-form {
+    margin: 0 2em .5em auto;
+    padding: .5em 1em;
+    font-size: .6rem;
+}
+
+.review-list {
+    margin: 0;
+    padding: 0;
 }
 
 .review {
     width: 100%;
-    height: 4.5em;
+    max-height: 300px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    margin: .3em 2em;
+    margin: .3em 1em;
     padding: .5em;
     overflow: hidden;
 
@@ -71,6 +83,7 @@
         background: transparent;
         width: auto;
         height: auto;
+        font-weight: 300;
 
         &-star {
             max-width: 1.2rem;
@@ -78,7 +91,7 @@
 
         &-label {
             margin: 0;
-            font-size: 1.2rem;
+            font-size: 1rem;
 
             span {
                 font-size: .7rem;

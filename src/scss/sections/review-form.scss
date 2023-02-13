@@ -1,0 +1,93 @@
+.review-form {
+    @include gradient-background();
+
+    max-width: 500px;
+    height: 100%;
+    padding: 1em;
+    margin: 0;
+
+    h2 {
+        font-size: 24px;
+    }
+
+    h3 {
+        font-size: 18px;
+        margin: 0;
+    }
+
+    &__author, &__comment {
+        width: 100%;
+        margin: .5em 0;
+    }
+
+    &__comment {
+        min-height: 100px;
+        max-height: 300px;
+        resize: vertical;
+    }
+
+    .comment-indicator {
+        display: block;
+        font-size: 14px;  
+        text-align: right;
+        margin: 0;
+    }
+
+    .button {
+        margin: 1em 0;
+        padding: .3em 2em;
+        font-size: 16px;
+    }
+
+    .rating {
+        position: relative;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+        align-items: center;
+        width: fit-content;
+        padding: .3em;
+        margin: .5em 0;
+        background-color: rgba(white, .05);
+        border: 2px solid rgba(white, .02);
+        border-style: none solid none;
+        border-radius: 5px;
+    }
+
+    .rating:not(:checked)>input {
+        display: none;
+    }
+
+    .rating:not(:checked)>.star {
+        width: 24px;
+        cursor: pointer;
+        overflow: hidden;
+        padding: 0 .1em;
+    }
+
+    .rating:not(:checked)>.star {
+        content: url('/assets/star-regular.svg');
+    }
+
+    .rating>input:checked~.star {
+        content: url('/assets/star-solid.svg');
+    }
+
+    .rating:not(:checked)>.star:hover,
+    .rating:not(:checked)>.star:hover~.star {
+        content: url('/assets/star-solid.svg');
+    }
+
+    .rating>input:checked+.star:hover,
+    .rating>input:checked+.star:hover~.star,
+    .rating>input:checked~.star:hover,
+    .rating>input:checked~.star:hover~.star,
+    .rating>.star:hover~input:checked~.star {
+        filter: brightness(70%);
+    }
+
+    .rating-indicator {
+        margin: 0 .5em;
+        font-size: 18px;
+    }
+}
