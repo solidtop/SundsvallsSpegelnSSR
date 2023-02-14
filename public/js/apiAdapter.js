@@ -15,8 +15,9 @@ export default class APIAdapter {
         return await res.json();
     }
 
-    async fetchScreenings(id) {
-
+    async fetchScreenings(path) {
+        const res = await fetch(`/api${path}/screenings`);
+        return await res.json();
     }
 
     async fetchReviews(path, query = '') {

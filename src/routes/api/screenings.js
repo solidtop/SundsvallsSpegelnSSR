@@ -5,8 +5,9 @@ const api = new APIAdapter();
 
 router.get('/movies/:id/screenings', async (req, res) => {
     const screenings = await api.fetchScreenings(req.params.id);
-    if (screenings) {
-        res.send(screenings);
+    const comingScreenings = filterUpcomingScreenings(screenings, 5, 5);
+    if (comingScreenings) {
+        res.send(comingScreenings);
     } else {
         res.status(404).end();
     }
@@ -14,35 +15,29 @@ router.get('/movies/:id/screenings', async (req, res) => {
 
 router.get('/upcoming-screenings', async (req, res) => {
     const screenings = await api.fetchUpcomingScreenings();
-    const filteredData = filterUpcomingScreenings(screenings);
-    const dates = getScreeningDates(filteredData);
-    if (screenings && dates) {
+    const comingScreenings = filterUpcomingScreenings(screenings, 10, 10);
+    const dates = getScreeningDates(comingScreenings);
+    if (comingScreenings && dates) {
         res.send({
             dates: dates,
-            screenings: filteredData,
+            screenings: comingScreenings,
         });
     } else {
         res.status(404).end();
     }
 });
 
-function filterUpcomingScreenings(screenings) {
+function filterUpcomingScreenings(screenings, comingDays, items) {
     const today = new Date();
-    const daysFromToday = 10;
     const dateToFilter = new Date();
-    dateToFilter.setDate(new Date().getDate() + daysFromToday);
+    dateToFilter.setDate(new Date().getDate() + comingDays);
 
-    let filteredArr = screenings.filter(screening => {
+    const filteredArr = screenings.filter(screening => {
         const date = new Date(screening.attributes.start_time);
         return date >= today && date <= dateToFilter;
     });
 
-    filteredArr = filteredArr.sort((a, b) => {
-        return new Date(a.attributes.start_time) - new Date(b.attributes.start_time);
-    });
-
-    const screeningsToInclude = 10;
-    return filteredArr.slice(0, screeningsToInclude);
+    return filteredArr.slice(0, items);
 } 
 
 function getScreeningDates(screenings) {

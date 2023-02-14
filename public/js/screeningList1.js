@@ -11,7 +11,7 @@ const options2 = {
     minute: 'numeric'
 };
 
-class ScreeningsList {
+class ScreeningList {
 
     constructor(data) {
         this.dates = data.dates;
@@ -64,13 +64,10 @@ class ScreeningsList {
 
         return container;
     }
-
 }
 
 const api = new APIAdapter();
 const data = await api.fetchUpcomingScreenings();
-
 const section = document.querySelector('.upcoming-screenings');
-const screenings = new ScreeningsList(data);
+const screenings = new ScreeningList(data);
 section.append(screenings.render());
-

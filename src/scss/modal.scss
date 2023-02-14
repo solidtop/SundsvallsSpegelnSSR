@@ -7,7 +7,7 @@
     background-color: rgba(black, .5);
     z-index: 5;
     overflow-y: scroll;
-    animation: fade-in .3s;
+    animation: fade-in .2s;
 
     overscroll-behavior: contain;
 
@@ -19,7 +19,7 @@
     padding: 0;
     z-index: 10;
     box-shadow: 0 0 20px rgba(black, .5);
-    animation: scale-in .2s;
+    animation: scale-in .1s;
 }
 
 .button-close-modal {
@@ -61,3 +61,4 @@
         transform: scale(1);
     }
 }
+

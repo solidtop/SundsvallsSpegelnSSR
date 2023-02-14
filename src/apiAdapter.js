@@ -17,13 +17,13 @@ class APIAdapter {
     }
 
     async fetchScreenings(id) {
-        const res = await fetch(API_URL + '/screenings?filters[movie]=' + id);
+        const res = await fetch(API_URL + `/screenings?filters[movie]=${id}&populate=movie&sort[start_time]=asc`);
         const payload = await res.json();
         return payload.data;
     }
 
     async fetchUpcomingScreenings() {
-        const res = await fetch(API_URL + '/screenings?populate=movie');
+        const res = await fetch(API_URL + '/screenings?populate=movie&sort[start_time]=asc');
         const payload = await res.json();
         return payload.data;
     }
@@ -73,3 +73,18 @@ class APIAdapter {
 }
 
 export default APIAdapter;
+
+const items = {
+    "data": [
+        {
+            "attributes": {
+                "start_time": "2023"
+            }
+        },
+        {
+            "attributes": {
+                "start_time": "2023"
+            }
+        }
+    ]
+}

@@ -38,3 +38,43 @@
         font-weight: 300;
     }
 }    
+
+.screenings {
+    h3 {
+        font-size: .8rem;
+        font-style: italic;
+        font-weight: 300;
+        margin: 0;
+    }
+
+    .screenings-list {
+        display: block;
+    }
+
+    .screening {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 2em;
+        align-items: center;
+        margin: .5em 0;
+        padding: .3em;
+        background-color: rgba(white, .05);
+        border-radius: 5px;
+        border: 2px rgba(white, .02);
+        border-style: none solid;
+
+        span {
+            font-size: .7rem;
+            text-align: left;
+
+            span {
+                display: block;
+            }
+        }
+
+        .button {
+            width: 7em;
+            justify-self: end;
+        }
+    }
+}
