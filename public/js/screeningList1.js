@@ -13,7 +13,9 @@ const options2 = {
 
 class ScreeningList {
 
-    constructor(data) {
+    async load() {
+        const api = new APIAdapter();
+        const data = await api.fetchUpcomingScreenings();
         this.dates = data.dates;
         this.screenings = data.screenings;
     }
@@ -66,8 +68,8 @@ class ScreeningList {
     }
 }
 
-const api = new APIAdapter();
-const data = await api.fetchUpcomingScreenings();
+
 const section = document.querySelector('.upcoming-screenings');
-const screenings = new ScreeningList(data);
-section.append(screenings.render());
+const screeningList = new ScreeningList();
+await screeningList.load();
+section.append(screeningList.render());
