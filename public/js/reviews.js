@@ -84,6 +84,7 @@ class Review {
 const api = new APIAdapter();
 const path = window.location.pathname;
 const data = await api.fetchReviews(path);
+
 if (data.reviews) {
     const reviewList = new ReviewList();
     reviewList.render(data.reviews);

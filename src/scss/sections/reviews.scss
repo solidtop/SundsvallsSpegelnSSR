@@ -16,12 +16,10 @@
 
 .review {
     width: 100%;
-    max-height: 300px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     margin: .3em 1em;
     padding: .5em;
-    overflow: hidden;
 
     border-radius: 5px;
     border: 2px rgba(white, .03);
@@ -65,11 +63,10 @@
     }
 
     &__comment {
-        display: block;
         grid-column: span 3;
         margin: .5em 0;
         font-size: .7rem;
-        max-height: 150px;
+        max-height: 200px;
         overflow: scroll;
     }
 

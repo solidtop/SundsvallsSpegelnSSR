@@ -30,7 +30,7 @@ class APIAdapter {
 
     async fetchReviews(id, page = 0) {
         const pageQuery = `pagination[page]=${page}&pagination[pageSize]=5`;
-        const res = await fetch(API_URL + `/reviews?filters[movie]=${id}&${pageQuery}`);
+        const res = await fetch(API_URL + `/reviews?filters[movie]=${id}&${pageQuery}&sort[createdAt]=asc`);
         const payload = await res.json();
         return payload;
     }
