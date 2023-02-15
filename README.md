@@ -4,7 +4,7 @@ Navigate to REPERTUAR -> Hela Bioprogrammet to view all movies
 
 # API DOCUMENTATION
 
-Movies
+## Movies
 
 /api/movies
  - GET - Get all movies
@@ -17,7 +17,7 @@ Movies
 
 /api/movies/{id}/reviews
 - GET - Get all reviews for specific movie
-  Parameters:
+  ### Parameters:
   - ?page=1 (required)
   Responses:
     Code 200
