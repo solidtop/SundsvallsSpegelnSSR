@@ -65,11 +65,11 @@
 
 .movie-info {
     @include container;
-
-    padding: 2em;
+    margin-top: 1em;
 }
 
 .movie-poster {
+    margin-left: 1em;
     margin-bottom: 1em;
     padding: .5em;
     max-height: 20rem;

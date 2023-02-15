@@ -987,10 +987,11 @@ body, html {
   max-width: 1920px;
   margin-left: auto;
   margin-right: auto;
-  padding: 2em;
+  margin-top: 1em;
 }
 
 .movie-poster {
+  margin-left: 1em;
   margin-bottom: 1em;
   padding: 0.5em;
   max-height: 20rem;
