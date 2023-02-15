@@ -4,8 +4,8 @@ const API_URL = 'https://plankton-app-xhkom.ondigitalocean.app/api';
 
 class APIAdapter {
 
-    async fetchMovies() {
-        const res = await fetch(API_URL + '/movies');
+    async fetchMovies(page = 1, pageSize = 10) {
+        const res = await fetch(API_URL + `/movies?pagination[page]=${page}&pagination[pageSize]=${pageSize}`);
         const payload = await res.json();
         return payload.data;
     }

@@ -28,14 +28,12 @@ export function render404(res) {
 app.get('/', async (req, res) => {
     const api = new APIAdapter();
     const movies = await api.fetchMovies();
-    const moviesToDisplay = 10;
-    const moviesOutNow = movies.length > moviesToDisplay ? movies.slice(0, moviesToDisplay) : movies; //Slice first x movies to display
-    
+   
     res.render('index', {
         title: 'Sundsvalls Spegeln, Bio-Bar-Bistro',
-        moviesOutNow: moviesOutNow,
+        moviesOutNow: movies,
         moviesComingSoon: MOVIE_PLACEHOLDERS,
-        slides: moviesOutNow
+        slides: movies
     });
 });
 
