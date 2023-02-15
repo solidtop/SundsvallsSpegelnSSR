@@ -97,8 +97,6 @@ class ReviewForm {
             const status = payload.status;
 
             if (status.code === 200) {
-                this.form.reset();
-                this.showMessage('');
                 window.location.reload();
             } else {
                 this.showMessage(status.message);

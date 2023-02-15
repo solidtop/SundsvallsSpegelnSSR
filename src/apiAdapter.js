@@ -30,13 +30,32 @@ class APIAdapter {
 
     async fetchReviews(id, page = 0) {
         const pageQuery = `pagination[page]=${page}&pagination[pageSize]=5`;
-        const res = await fetch(API_URL + `/reviews?filters[movie]=${id}&${pageQuery}&sort[createdAt]=asc`);
+        const res = await fetch(API_URL + `/reviews?filters[movie]=${id}&${pageQuery}&sort[createdAt]=desc`);
         const payload = await res.json();
         return payload;
     }
 
-    async postReview(review, verified = false) {
-        
+    async postReview(review, verified = false) {    
+        const today = new Date().toISOString();
+        const res = await fetch(API_URL + '/reviews', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                data: {
+                    comment: review.comment,
+                    rating: review.rating,
+                    author: review.author,
+                    verified: verified,
+                    movie: review.movie,
+                    createdAt: today,
+                    updatedAt: today,
+                },
+            }),
+        });
+
+        return res.json();
     }
 
     async fetchRating(id) {
@@ -73,18 +92,3 @@ class APIAdapter {
 }
 
 export default APIAdapter;
-
-const items = {
-    "data": [
-        {
-            "attributes": {
-                "start_time": "2023"
-            }
-        },
-        {
-            "attributes": {
-                "start_time": "2023"
-            }
-        }
-    ]
-}

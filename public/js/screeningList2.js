@@ -20,7 +20,7 @@ class ScreeningList {
     }
 
     render() {
-        if (!this.screenings) {
+        if (!this.screenings || this.screenings.length <= 0) {
             const h3 = document.createElement('h3');
             h3.textContent = 'Inga kommande visningar vid detta tillfälle';
             return h3;

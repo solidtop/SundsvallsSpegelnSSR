@@ -32,6 +32,13 @@ class ScreeningList {
         line.classList.add('line');
         container.append(line);
 
+        if (!this.screenings || this.screenings.length <= 0) {
+            const h4 = document.createElement('h4');
+            h4.textContent = 'Inga kommande visningar vid detta tillfälle';
+            container.append(h4);
+            return container;
+        }
+
         const ul = document.createElement('ul');
         ul.classList.add('screenings-list');
         container.append(ul);
