@@ -4,8 +4,6 @@ Navigate to REPERTUAR -> Hela Bioprogrammet to view all movies
 
 # API DOCUMENTATION
 
-## Movies
-
 /api/movies
  - GET - Get all movies
  
@@ -19,7 +17,7 @@ Navigate to REPERTUAR -> Hela Bioprogrammet to view all movies
 - GET - Get all reviews for specific movie
   ### Parameters:
   - ?page=1 (required)
-  Responses:
+  ### Responses:
     Code 200
     ```
       {
@@ -49,7 +47,7 @@ Navigate to REPERTUAR -> Hela Bioprogrammet to view all movies
   
 
 - POST - Add new review 
-  Request body:
+  ### Request body:
   ```
   {
     body: {
@@ -59,7 +57,7 @@ Navigate to REPERTUAR -> Hela Bioprogrammet to view all movies
     }
   }
   ```
-  Responses
+  ### Responses
     Code 200, 400, 403
     ```
     {
@@ -74,7 +72,7 @@ Navigate to REPERTUAR -> Hela Bioprogrammet to view all movies
     ```
 /api/upcoming-screenings
 - GET - Get 10 upcoming screenings
-  Responses:
+  ### Responses:
     Code 200
     ```
     {
