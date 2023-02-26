@@ -1,9 +1,10 @@
 .out-now, .coming-soon, .all-movies {
     @include container;
     @include gradient-background();
-
-    margin-top: 2em;
     padding: 0 2em;
+
+    border: 2px rgba(white, .02);
+    border-style: none solid;
 }
 
 .movie-list {

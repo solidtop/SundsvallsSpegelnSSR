@@ -1,0 +1,64 @@
+.modal-container {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(black, .5);
+    z-index: 5;
+    overflow-y: scroll;
+    animation: fade-in .2s;
+
+    overscroll-behavior: contain;
+
+}
+
+.modal-content {
+    position: relative;
+    margin: 1em;
+    padding: 0;
+    z-index: 10;
+    box-shadow: 0 0 20px rgba(black, .5);
+    animation: scale-in .1s;
+}
+
+.button-close-modal {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 8px 15px;
+    height: max-content;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    text-align: center;
+
+    i {
+        font-size: 32px;
+    }
+
+    &:hover i {
+        color: $c-purple;
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes scale-in {
+    from {
+        transform: scale(.9);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+

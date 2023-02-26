@@ -3,11 +3,8 @@ nav(class="pagination")
     a(class="page-nav", href="#")
         i(class="fa-solid fa-caret-left")
 
-    -
-        var list = [1]
-
     ul(class="page-list")
-        each page in list
+        each page in pagination
             li 
                 a(class="selected", href="#")=page
     

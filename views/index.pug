@@ -1,23 +1,31 @@
 extends main-layout.pug 
+
+block scripts 
+    script(src="/js/screeningList1.js", type="module")
+    script(src="/js/carousel.js", type="module")
+
 block content 
 
     section(class="hero-carousel")
         include carousel.pug
+    
+    div(class="grid-container")
 
-    section(class="out-now")
-        h2 PÅ BION JUST NU
-        div(class="line")
+        main(class="main")
+            section(class="out-now")
+                h2 PÅ BION JUST NU
+                div(class="line")
 
-        ul(class="movie-list")
-            each movie in moviesOutNow
-                include movie-card.pug
+                ul(class="movie-list")
+                    each movie in moviesOutNow
+                        include movie-card.pug
 
-    section(class="coming-soon")
-        h2 KOMMER SNART
-        div(class="line")
+            section(class="coming-soon")
+                h2 KOMMER SNART
+                div(class="line")
 
-        ul(class="movie-list")
-            each movie in moviesComingSoon
-                include movie-card-small.pug
-
-
+                ul(class="movie-list")
+                    each movie in moviesComingSoon
+                        include movie-card-small.pug
+    
+        aside(class="upcoming-screenings")

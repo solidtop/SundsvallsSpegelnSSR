@@ -48,16 +48,14 @@ a {
   text-decoration: none;
   position: relative;
 }
-a:hover {
+
+.link:hover {
   color: #715fa6;
   filter: brightness(120%);
 }
 
 button {
   cursor: pointer;
-}
-button:hover {
-  filter: brightness(150%);
 }
 
 img {
@@ -75,9 +73,9 @@ img {
 }
 .button.primary {
   background-color: #715fa6;
+  color: #E6E6E6;
 }
 .button.primary:hover {
-  cursor: pointer;
   filter: brightness(120%);
 }
 
@@ -113,6 +111,23 @@ strong {
   border-radius: 5px;
 }
 
+input,
+textarea {
+  color: #E6E6E6;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.02);
+  border-style: none solid none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 300;
+  padding: 0.5em 0.3em;
+  box-sizing: border-box;
+}
+input:focus,
+textarea:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.3);
+}
+
 body, html {
   margin: 0;
   width: 100vw;
@@ -130,10 +145,25 @@ body, html {
   }
 }
 
+@media (min-width: 1280px) {
+  .grid-container {
+    max-width: 1920px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1em;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 1em;
+  }
+  .main {
+    grid-column: span 11;
+  }
+}
 .status {
   max-width: 1920px;
   margin-left: auto;
   margin-right: auto;
+  padding: 2em;
 }
 .status i {
   font-size: 4rem;
@@ -163,6 +193,7 @@ body, html {
   margin-right: auto;
   display: flex;
   width: fit-content;
+  max-width: 100%;
   height: 1.5em;
   justify-content: center;
   align-items: center;
@@ -184,12 +215,20 @@ body, html {
 .page-nav:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
+.page-nav.disabled {
+  pointer-events: none;
+  border-radius: 0;
+}
+.page-nav.disabled i {
+  color: rgba(255, 255, 255, 0.3);
+}
 
 .page-list {
   display: flex;
   align-items: center;
   margin: 0;
-  padding: 0 1em;
+  padding: 0;
+  width: fit-content;
   height: 100%;
 }
 .page-list li {
@@ -213,6 +252,62 @@ body, html {
   background-color: #715fa6;
 }
 
+.modal-container {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 5;
+  overflow-y: scroll;
+  animation: fade-in 0.2s;
+  overscroll-behavior: contain;
+}
+
+.modal-content {
+  position: relative;
+  margin: 1em;
+  padding: 0;
+  z-index: 10;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  animation: scale-in 0.1s;
+}
+
+.button-close-modal {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 8px 15px;
+  height: max-content;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  text-align: center;
+}
+.button-close-modal i {
+  font-size: 32px;
+}
+.button-close-modal:hover i {
+  color: #715fa6;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes scale-in {
+  from {
+    transform: scale(0.9);
+  }
+  to {
+    transform: scale(1);
+  }
+}
 .header {
   max-width: 1920px;
   margin-left: auto;
@@ -474,6 +569,81 @@ body, html {
   color: #715fa6;
 }
 
+.upcoming-screenings {
+  max-width: 1920px;
+  margin-left: auto;
+  margin-right: auto;
+  background-image: linear-gradient(225deg, #062e37, #151e31, #211531 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  border-radius: 10px;
+  margin-bottom: 1em;
+  display: none;
+  width: 350px;
+  height: fit-content;
+}
+@media (min-width: 1280px) {
+  .upcoming-screenings {
+    display: block;
+  }
+}
+
+.screenings-container {
+  padding: 1em;
+  padding-top: 0;
+}
+.screenings-container h3 {
+  text-align: center;
+}
+.screenings-container h4 {
+  font-size: 0.7rem;
+  margin-top: 1em;
+  margin-bottom: 0;
+}
+
+.screenings-list {
+  padding: 0;
+}
+
+.screening span, .screening a {
+  font-size: 0.6rem;
+  font-weight: 300;
+}
+
+.screenings h3 {
+  font-size: 0.8rem;
+  font-style: italic;
+  font-weight: 300;
+  margin: 0;
+}
+.screenings .screenings-list {
+  display: block;
+}
+.screenings .screening {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2em;
+  align-items: center;
+  margin: 0.5em 0;
+  padding: 0.3em;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 5px;
+  border: 2px rgba(255, 255, 255, 0.02);
+  border-style: none solid;
+}
+.screenings .screening span {
+  font-size: 0.7rem;
+  text-align: left;
+}
+.screenings .screening span span {
+  display: block;
+}
+.screenings .screening .button {
+  width: 7em;
+  justify-self: end;
+}
+
 .out-now, .coming-soon, .all-movies {
   max-width: 1920px;
   margin-left: auto;
@@ -484,8 +654,9 @@ body, html {
   background-size: cover;
   border-radius: 10px;
   margin-bottom: 1em;
-  margin-top: 2em;
   padding: 0 2em;
+  border: 2px rgba(255, 255, 255, 0.02);
+  border-style: none solid;
 }
 
 .movie-list {
@@ -543,6 +714,195 @@ body, html {
   max-width: 200px;
 }
 
+.total-reviews {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.toggle-review-form {
+  margin: 0 2em 0.5em auto;
+  padding: 0.5em 1em;
+  font-size: 0.6rem;
+}
+
+.review-list {
+  margin: 0;
+  padding: 0;
+}
+
+.review {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: 0.3em 1em;
+  padding: 0.5em;
+  border-radius: 5px;
+  border: 2px rgba(255, 255, 255, 0.03);
+  border-style: none solid none;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+.review__profile {
+  display: block;
+  grid-column: span 2;
+  grid-row: 1;
+  width: auto;
+  height: auto;
+  margin: 0;
+  background: transparent;
+}
+.review__portrait {
+  float: left;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: 0;
+  margin-right: 0.5em;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+}
+.review__author {
+  display: block;
+  margin: 0;
+  text-align: left;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.review__timestamp {
+  display: block;
+  text-align: left;
+  font-size: 0.5rem;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.5);
+}
+.review__comment {
+  grid-column: span 3;
+  margin: 0.5em 0;
+  font-size: 0.7rem;
+  max-height: 200px;
+  overflow: scroll;
+}
+.review__rating {
+  grid-column: 3;
+  align-self: start;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-start;
+  background: transparent;
+  width: auto;
+  height: auto;
+  font-weight: 300;
+}
+.review__rating-star {
+  max-width: 1.2rem;
+}
+.review__rating-label {
+  margin: 0;
+  font-size: 1rem;
+}
+.review__rating-label span {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.review-form {
+  background-image: linear-gradient(225deg, #062e37, #151e31, #211531 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  border-radius: 10px;
+  margin-bottom: 1em;
+  max-width: 500px;
+  height: 100%;
+  padding: 1em;
+  margin: 0;
+}
+.review-form h2 {
+  font-size: 24px;
+}
+.review-form h3 {
+  font-size: 18px;
+  margin: 0;
+}
+.review-form .message {
+  display: none;
+  font-size: 16px;
+  font-weight: 300;
+  color: #F75D59;
+  padding: 0.5em;
+  border: 2px solid rgba(255, 255, 255, 0.02);
+  border-style: none solid none;
+  border-radius: 5px;
+  background-color: rgba(194, 70, 65, 0.2);
+  box-sizing: border-box;
+}
+.review-form .message.show {
+  display: block;
+}
+.review-form__author, .review-form__comment, .review-form .message {
+  width: 100%;
+  margin: 0.5em 0;
+}
+.review-form__comment {
+  min-height: 100px;
+  max-height: 300px;
+  resize: vertical;
+}
+.review-form .comment-indicator {
+  display: block;
+  font-size: 14px;
+  text-align: right;
+  margin: 0;
+}
+.review-form .button {
+  margin: 1em 0;
+  padding: 0.3em 2em;
+  font-size: 16px;
+}
+.review-form .rating {
+  position: relative;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: center;
+  width: fit-content;
+  padding: 0.3em;
+  margin: 0.5em 0;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.02);
+  border-style: none solid none;
+  border-radius: 5px;
+}
+.review-form .rating:not(:checked) > input {
+  display: none;
+}
+.review-form .rating:not(:checked) > .star {
+  width: 24px;
+  cursor: pointer;
+  overflow: hidden;
+  padding: 0 0.1em;
+}
+.review-form .rating:not(:checked) > .star {
+  content: url("/assets/star-regular.svg");
+}
+.review-form .rating > input:checked ~ .star {
+  content: url("/assets/star-solid.svg");
+}
+.review-form .rating:not(:checked) > .star:hover,
+.review-form .rating:not(:checked) > .star:hover ~ .star {
+  content: url("/assets/star-solid.svg");
+}
+.review-form .rating > input:checked + .star:hover,
+.review-form .rating > input:checked + .star:hover ~ .star,
+.review-form .rating > input:checked ~ .star:hover,
+.review-form .rating > input:checked ~ .star:hover ~ .star,
+.review-form .rating > .star:hover ~ input:checked ~ .star {
+  filter: brightness(70%);
+}
+.review-form .rating-indicator {
+  margin: 0 0.5em;
+  font-size: 18px;
+}
+
 .content-text p {
   max-width: 400px;
   margin: 1rem auto;
@@ -575,6 +935,35 @@ body, html {
   display: block;
   border-radius: 5px;
 }
+.movie-hero .meta-details {
+  position: absolute;
+  bottom: 4.5em;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: fit-content;
+  height: fit-content;
+  z-index: 3;
+  margin: 0 5em;
+}
+.movie-hero .meta-details .rating {
+  display: flex;
+  justify-content: flex-start;
+}
+.movie-hero .meta-details .rating__star {
+  object-fit: scale-down;
+  width: 0.8rem;
+}
+.movie-hero .meta-details .rating__label {
+  margin: 0 0.3em;
+  font-size: 0.8rem;
+  font-weight: 300;
+}
+.movie-hero .meta-details .rating__label span {
+  font-size: 0.6rem;
+  color: rgba(255, 255, 255, 0.5);
+}
 .movie-hero .button {
   position: absolute;
   bottom: 2em;
@@ -584,7 +973,7 @@ body, html {
 
 .movie-title {
   position: absolute;
-  bottom: 2em;
+  bottom: 2.5em;
   left: 2em;
   margin: 0;
   margin-right: 2em;
@@ -598,10 +987,11 @@ body, html {
   max-width: 1920px;
   margin-left: auto;
   margin-right: auto;
-  padding: 2em;
+  margin-top: 1em;
 }
 
 .movie-poster {
+  margin-left: 1em;
   margin-bottom: 1em;
   padding: 0.5em;
   max-height: 20rem;
@@ -626,6 +1016,10 @@ body, html {
   border: 2px rgba(255, 255, 255, 0.02);
   border-style: none solid;
 }
+.col-movie-info h2 {
+  margin-left: 0;
+  margin-right: auto;
+}
 .col-movie-info .line {
   margin-left: 0;
 }
@@ -645,7 +1039,7 @@ body, html {
   font-size: 0.7rem;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 1000px) {
   .movie-info {
     display: flex;
     gap: 1em;
@@ -706,5 +1100,3 @@ body, html {
     display: flex;
   }
 }
-
-/*# sourceMappingURL=main.css.map */

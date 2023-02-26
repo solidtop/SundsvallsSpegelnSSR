@@ -1,0 +1,99 @@
+.total-reviews {
+    font-size: .8rem;
+    color: rgba(white, .6);
+}
+
+.toggle-review-form {
+    margin: 0 2em .5em auto;
+    padding: .5em 1em;
+    font-size: .6rem;
+}
+
+.review-list {
+    margin: 0;
+    padding: 0;
+}
+
+.review {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: .3em 1em;
+    padding: .5em;
+
+    border-radius: 5px;
+    border: 2px rgba(white, .03);
+    border-style: none solid none;
+    background-color: rgba(white, .05);
+
+    &__profile {
+        display: block;
+        grid-column: span 2;
+        grid-row: 1;
+        width: auto;
+        height: auto;
+        margin: 0;
+        background: transparent;
+    }
+
+    &__portrait {
+        float: left;
+        width: 2.5rem;
+        height: 2.5rem;
+        margin: 0;
+        margin-right: .5em;
+        background: rgba(white, .1);
+        border-radius: 50%;
+    }
+
+    &__author {
+        display: block;
+        margin: 0;
+        text-align: left;
+        font-size: .8rem;
+        font-weight: 600;
+    }
+
+    &__timestamp {
+        display: block;
+        text-align: left;
+        font-size: .5rem;
+        font-style: italic;
+        color: rgba(white, .5);
+    }
+
+    &__comment {
+        grid-column: span 3;
+        margin: .5em 0;
+        font-size: .7rem;
+        max-height: 200px;
+        overflow: scroll;
+    }
+
+    &__rating {
+        grid-column: 3;
+        align-self: start;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: flex-start;
+        background: transparent;
+        width: auto;
+        height: auto;
+        font-weight: 300;
+
+        &-star {
+            max-width: 1.2rem;
+        }
+
+        &-label {
+            margin: 0;
+            font-size: 1rem;
+
+            span {
+                font-size: .7rem;
+                color: rgba(white, .5);
+            }
+        }
+    }
+}

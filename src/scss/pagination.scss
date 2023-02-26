@@ -3,6 +3,7 @@
 
     display: flex;
     width: fit-content;
+    max-width: 100%;
     height: 1.5em;
     justify-content: center;
     align-items: center;
@@ -24,13 +25,23 @@
     &:hover {
         background-color: rgba(white, .1);
     }
+
+    &.disabled {
+        pointer-events: none;
+        border-radius: 0;
+
+        i {
+            color: rgba(white, .3);
+        }
+    }
 }
 
 .page-list {
     display: flex;
     align-items: center;
     margin: 0;
-    padding: 0 1em;
+    padding: 0;
+    width: fit-content;
     height: 100%;
 
     li {

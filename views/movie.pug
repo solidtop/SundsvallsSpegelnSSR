@@ -1,10 +1,19 @@
 extends main-layout.pug 
+
+block scripts 
+    script(src="/js/reviews.js", type="module")
+    script(src="/js/rating.js", type="module")
+    script(src="/js/pagination.js", type="module")
+    script(src="/js/reviewForm.js", type="module")
+    script(src="/js/screeningList2.js", type="module").
+
 block content 
     section(class="movie-hero")
         img(class="movie-hero__image", src="https://www.themoviedb.org/t/p/original/ik3sCC9fziS4SnagwRAQWPytBtj.jpg", alt="Movie hero image")
         div(class="vignette")
         h1(class="movie-title")=movie.attributes.title
             div(class="line")
+        div(class="meta-details")
         a(class="button primary", href="/tickets") Köp Biljetter
     
     article(class="movie-info")
@@ -13,22 +22,41 @@ block content
         div(class="col-movie-info") 
             div(class="movie-intro")
                 p!=marked(movie.attributes.intro) 
+
+            section(class="screenings")
+                h2 VISNINGSTIDER
             
             section(class="videos")
-                h1=`Videor & Trailers för ${movie.attributes.title}`
+                h2=`Videor & Trailers för ${movie.attributes.title}`
                 i Kommer Snart
 
             section(class="images")
-                h1=`Bilder för ${movie.attributes.title}`
-                i Kommer Snart
-
-            section(class="reviews")
-                h1 Recensioner
+                h2=`Bilder för ${movie.attributes.title}`
                 i Kommer Snart
 
             section(class="cast")
-                h1 Rolllista
+                h2 Rolllista
                 i Kommer Snart
+
+            section(class="reviews")
+                h2 Recensioner & Betyg
+                    span(class="total-reviews")
+
+                button(class="button primary toggle-review-form")
+                    i.fa-solid.fa-plus
+                    |    Recension
+                ul(class="review-list")
+                    
+
+                      
+
+
+
+
+
+
+    
+    
 
 
 
